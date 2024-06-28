@@ -44,7 +44,8 @@ class _LoginState extends State<Login> {
         padding: const EdgeInsets.all(16.0),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
                 width: 150,
@@ -52,7 +53,7 @@ class _LoginState extends State<Login> {
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
-                    image: AssetImage('assets/logo.jpeg'),
+                    image: AssetImage('lib/logo.jpeg'),
                     fit: BoxFit.cover,
                   ),
                 ),

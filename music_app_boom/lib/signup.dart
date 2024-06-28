@@ -52,7 +52,7 @@ class _LoginState extends State<Login> {
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
-                    image: AssetImage('assets/logo.jpeg'),
+                    image: AssetImage('lib/logo.jpeg'),
                     fit: BoxFit.cover,
                   ),
                 ),
