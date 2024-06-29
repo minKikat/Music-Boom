@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/kpop.dart';
 //import 'package:flutter/widgets.dart';
 
 class Mandopop extends StatelessWidget {
@@ -69,15 +70,21 @@ class Mandopop extends StatelessWidget {
                 ),
                 const SizedBox(width: 80), // Space between 'a' and 'b'
 
-                const Text(
-                  "K-pop",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Century Gothic",
-                    color: Colors.white,
+                GestureDetector(
+                  child: const Text(
+                    "K-pop",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Century Gothic",
+                      color: Colors.white,
+                    ),
                   ),
-                ),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (BuildContext context) => const Kpop()));
+                  },
+                )
               ],
             ),
 
