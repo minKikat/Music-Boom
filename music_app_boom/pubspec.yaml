@@ -54,6 +54,17 @@ dev_dependencies:
 flutter:
 assets:
 - lib/logo.jpeg
+  - picture/Gulf of Alaska.png
+  - picture/long.png
+  - picture/a friend like you.png
+  - picture/best friend.png
+  - picture/I'm too stupid.png
+  - picture/boombayah.png
+  - picture/easy.png
+  - picture/bubble gum.png
+  - picture/smart.png
+  - picture/magnetic.png
+  - picture/logo.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
