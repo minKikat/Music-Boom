@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
                         right: 10,
                         child: Icon(
                           Icons.favorite_border,
-                          color: Colors.red,
+                          color: Color.fromRGBO(57, 191, 212, 1),
                         ),
                       ),
                     ],
