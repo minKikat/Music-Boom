@@ -209,8 +209,6 @@ Stage 위엔 불이 튀어 내 body (that's my body, that's my body)
 Pull up and I rip it up like ballet (yeah, yeah)
 Damn, I really make it look easy (damn, I really make it look easy)
 Yuh, know that I make it look easy
-
-
                     ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
