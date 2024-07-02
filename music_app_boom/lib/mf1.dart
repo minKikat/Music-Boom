@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Mf1 extends StatefulWidget {
-  const Mf1({super.key});
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -25,6 +29,8 @@ class _MyAppState extends State<MyApp> {
                   Text(
                     'Gull of Alaska',
                     style: TextStyle(
+                      fontFamily: "Century Gothic",
+                      fontWeight: FontWeight.bold,
                       color: Color.fromRGBO(57, 191, 212, 1),
                       fontSize: 24,
                     ),
@@ -45,12 +51,19 @@ class _MyAppState extends State<MyApp> {
                   SizedBox(height: 10),
                   Text(
                     'Gulf of Alaska',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: TextStyle(
+                        fontFamily: "Century Gothic",
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 20),
                   ),
                   SizedBox(height: 5),
                   Text(
                     'Firdaus',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(
+                        fontFamily: "Century Gothic",
+                        color: Colors.white,
+                        fontSize: 18),
                   ),
                   SizedBox(height: 20),
                   Stack(
@@ -88,14 +101,20 @@ class _MyAppState extends State<MyApp> {
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
                           '0:00', // Left side text (start time)
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          style: TextStyle(
+                              fontFamily: "Century Gothic",
+                              color: Colors.white,
+                              fontSize: 14),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 16.0),
                         child: Text(
                           '2:43', // Right side text (end time)
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          style: TextStyle(
+                              fontFamily: "Century Gothic",
+                              color: Colors.white,
+                              fontSize: 14),
                         ),
                       ),
                     ],
@@ -180,7 +199,10 @@ class _MyAppState extends State<MyApp> {
                             '你千万不要偷偷告诉她\n'
                             '在无数夜深人静的夜晚\n'
                             '我依旧在想她',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(
+                                fontFamily: "Century Gothic",
+                                color: Colors.white,
+                                fontSize: 16),
                           ),
                         ],
                       ),
