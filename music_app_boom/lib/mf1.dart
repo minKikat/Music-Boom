@@ -84,9 +84,29 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: Text(
+                          '0:00', // Left side text (start time)
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Text(
+                          '2:43', // Right side text (end time)
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ),
+                    ],
+                  ),
                   SizedBox(
                       height:
-                          20), // Increased spacing between slider and text block
+                          5), // Increased spacing between slider and text block
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -101,7 +121,8 @@ class _MyAppState extends State<MyApp> {
                           shape: BoxShape.circle,
                         ),
                         child: IconButton(
-                          icon: Icon(Icons.play_arrow, color: Colors.white),
+                          icon: Icon(Icons.play_arrow_outlined,
+                              color: Colors.white),
                           onPressed: () {},
                         ),
                       ),
