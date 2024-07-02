@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Mf1 extends StatefulWidget {
+  const Mf1({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
