@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'songlibraby.dart';
+=======
+import 'package:music_app_boom/login.dart';
+>>>>>>> b1497b8cc77c9537d146e4d85c3ef4348fb5322c
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +38,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+<<<<<<< HEAD
       home: const SongLibrary(),
+=======
+      home: const Login(),
+>>>>>>> b1497b8cc77c9537d146e4d85c3ef4348fb5322c
     );
   }
 }

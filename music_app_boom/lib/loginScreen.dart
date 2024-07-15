@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class LoginScreen extends StatelessWidget {
 const LoginScreen({ Key? key }) : super(key: key);
 
@@ -6,3 +7,6 @@ const LoginScreen({ Key? key }) : super(key: key);
     return ();
   }
 }
+=======
+
+>>>>>>> b1497b8cc77c9537d146e4d85c3ef4348fb5322c
