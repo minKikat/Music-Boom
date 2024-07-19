@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-class LoginScreen extends StatelessWidget {
-const LoginScreen({ Key? key }) : super(key: key);
+import 'package:flutter/material.dart';
+
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context){
-    return ();
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
-=======
-
->>>>>>> b1497b8cc77c9537d146e4d85c3ef4348fb5322c

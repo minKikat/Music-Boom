@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Boombayah',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
                       fontSize: 24,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Align(
                     alignment: Alignment.center,
                     child: ClipRRect(
@@ -48,8 +48,8 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     'Boombayah',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
