@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class myFavourite4 extends StatefulWidget {
-  const myFavourite4({super.key});
+class myFavourite5 extends StatefulWidget {
+  const myFavourite5({super.key});
 
   @override
-  State<myFavourite4> createState() => _MyAppState();
+  State<myFavourite5> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<myFavourite4> {
+class _MyAppState extends State<myFavourite5> {
   double _sliderValue = 0.0;
 
   @override
