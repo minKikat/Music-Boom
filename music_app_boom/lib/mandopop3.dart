@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Mandopop3 extends StatefulWidget {
+  const Mandopop3({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Mandopop3> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Mandopop3> {
   double _sliderValue = 0.0;
 
   @override
