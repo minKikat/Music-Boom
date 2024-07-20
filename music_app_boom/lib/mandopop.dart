@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/kpop.dart';
+//import 'package:flutter/widgets.dart';
 
-class myFavourite2 extends StatefulWidget {
-  const myFavourite2({super.key});
-
-  @override
-  State<myFavourite2> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<myFavourite2> {
-  double _sliderValue = 0.0;
+class Mandopop extends StatelessWidget {
+  const Mandopop({super.key});
 
   @override
   Widget build(BuildContext context) {
