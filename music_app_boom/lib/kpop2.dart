@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Kpop2 extends StatefulWidget {
+  const Kpop2({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Kpop2> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Kpop2> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'I’m too Stupid',
+                    'Easy',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/I\'m too stupid.png',
+                        'picture/easy.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'I’m too Stupid',
+                    'Easy',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Chuina Lisha',
+                    'Le  Sserafim',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -88,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                         right: 10,
                         child: Icon(
                           Icons.favorite_border,
-                          color: Colors.red,
+                          color: Color.fromRGBO(57, 191, 212, 1),
                         ),
                       ),
                     ],
@@ -160,44 +156,56 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '别忘记了还会等你回家的人\n'
-                            '她要等不管夜多深\n'
-                            '有些事尽量别过分\n'
-                            '也能找到一个平衡\n'
-                            '仅存的天真留它一个完整\n\n'
-                            '不想懂爱怎变成这样的\n'
-                            '情愿是要我去为爱负责\n'
-                            '就算自己痛了不想你走了\n\n'
-                            '是不是我太笨\n'
-                            '给不了你最渴望的安稳\n'
-                            '才让你忐忑不安跳动着的心\n'
-                            '才想去越格\n\n'
-                            '是不是我太笨\n'
-                            '只要你说的我全都信任\n'
-                            '不能去拆穿的又何必追问\n\n'
-                            '寂寞的人总是都有它的可恨\n'
-                            '所以看开了也算了\n'
-                            '怎样才是爱一个人\n'
-                            '谁能解开这个疑问\n'
-                            '爱没对错的只有值不值得\n\n'
-                            '不想懂爱怎变成这样的\n'
-                            '情愿是要我去为爱负责\n'
-                            '就算自己痛了不想你走了\n\n'
-                            '是不是我太笨\n'
-                            '给不了你最渴望的安稳\n'
-                            '才让你忐忑不安跳动着的心\n'
-                            '才想去越格\n\n'
-                            '是不是我太笨\n'
-                            '只要你说的我全都信任\n'
-                            '不能去拆穿的又何必追问\n\n'
-                            '是不是我太笨\n'
-                            '给不了你最渴望的安稳\n'
-                            '才让你忐忑不安跳动着的心\n'
-                            '才想去越格\n\n'
-                            '是不是我太笨\n'
-                            '只要你说的我全都信任\n'
-                            '不能去拆穿的又何必追问\n'
-                            '谁叫我爱你呢什么都能忍',
+                            '''
+다친대도, 길을 걸어, kiss me
+쉽지 않음 내가 쉽게 easy
+Stage 위엔 불이 튀어 내 body
+Pull up and I rip it up like ballet
+Damn, I really make it look easy
+Yuh, know that I make it look easy
+
+Clap your hands, 너도 나와 같다면
+Clap your hands now (dream, dream, dream)
+의구심 따윈 그냥 치워
+그냥 말해, "I'm the real one" (sheesh, sheesh, sheesh)
+
+조명 꺼진 뒤의, 난 wander in the night
+Don't know what is right, don't know 'bout my rights
+시기심, 의심, 불신, 이젠 friends of me, yeah
+세상에게 난 반쪽짜리 seraphim, yeah
+
+Mmm, mmm-mmm, mmm
+I've been tryin' so long to show you, show you, show you (oh)
+(I'm the one that you need)
+
+다친대도, 길을 걸어, kiss me
+쉽지 않음 내가 쉽게 easy
+Stage 위엔 불이 튀어 내 body
+Pull up and I rip it up like ballet
+Damn, I really make it look easy
+Yuh, know that I make it look easy
+
+Yuh, know that I make it look easy
+수면 위의 백조가 돼, whippin'
+때론 풀려 나의 다리, but I keep it
+Get set, go, come and see me, I'm the fearless, mmm
+
+나의 발걸음은 매 순간 history, 이건 my way
+영웅처럼 걸어, even if I am not flawless
+편하게만 왔다고?
+날 몰라봤다면, you have to know
+
+Mmm
+I've been tryin' so long to show you, show you, show you
+(I'm the one that you need)
+
+다친대도, 길을 걸어, kiss me (kiss)
+쉽지 않음 내가 쉽게 easy (쉽지 않음 내가 쉽게 easy)
+Stage 위엔 불이 튀어 내 body (that's my body, that's my body)
+Pull up and I rip it up like ballet (yeah, yeah)
+Damn, I really make it look easy (damn, I really make it look easy)
+Yuh, know that I make it look easy
+                    ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,

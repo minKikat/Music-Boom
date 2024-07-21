@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Mandopop2 extends StatefulWidget {
+  const Mandopop2({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Mandopop2> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Mandopop2> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Best Friend',
+                    'Long',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/best friend.png',
+                        'picture/long.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Best Friend',
+                    'Long',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Eric Chou',
+                    'Zhang Bi Chen',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -161,53 +157,46 @@ class _MyAppState extends State<MyApp> {
                         children: [
                           Text(
                             '''
-想当星辰 却像路灯
-若爱一个人 切忌爱得太深
-酒后传的讯息 你别当真
-我总感情用事 忘了不可能
+深海中 那点光 昏暗的诱惑
+她以为 抓得住 名为爱的泡沫
+人心 扑朔 晦涩 幽蓝如墨
+怎么 猜透 看透 故事的结果
 
-也委屈你 长期容忍
-但我们之间 该用什么相称
-难道非要我爱其他的人
-你才心安理得 卸下了责任
+为何绚烂 叫人扑空
+为何爱我者予我牢笼
+为何等待 都徒劳无功
+为何囚人者也像困兽(为什么)
+越珍贵 越浪费
+致命的伤 诞生于亲密
+越追问 越无解
+哪有答案 不过是咒语
+都在笼中
 
-我们不讨论的关系
-很接近却不是爱情
-拥有无数交集 要丢弃太可惜
-我演的恨 真不诚恳
-你最清楚 我是怎样的人
+出口就 在身后 只需要回头
+为什么 人们却 亲手上一把锁
+不甘 不得 不休 囚人自囚
+为爱 为爱 为爱 都只是为我
 
-没人不羡慕的关系
-只是没结局的续集
-为什么太熟悉 反而变成距离
-触不到的恋人 化身挚友也像搪塞
-你明知道我不会等到 却放任我等
+为何绚烂 叫人扑空
+为何爱我者予我牢笼
+为何等待 都徒劳无功
+为何囚人者也像困兽(为什么)
+越珍贵 越浪费
+致命的伤 诞生于亲密
+越追问 越无解
+答案写在笼中 只为困住你
 
-你正全心 对待的人
-辗转找到我 劝我别再伤神
-其实我真不想一一询问
-从此默不出声 是我的责任
-
-我们不说破的关系
-很微妙却不是爱情
-容许这种维系 是我不够争气
-一再追问 何其愚笨
-我也清楚你是怎样的人
-
-荡气回肠 又能如何
-我最不应该 还害你受困
-进退不得
-我们不讨论的关系
-很接近却不是爱情
-拥有无数交集 要丢弃太可惜
-我演的恨 真不诚恳
-你最清楚 我是怎样的人
-
-没人不羡慕的关系
-只是没结局的续集
-为什么太熟悉 反而变成距离
-触不到的恋人 化身挚友也像搪塞
-你明知道我不会等到 却放任我等
+为何拥抱 那么疼痛
+为何爱我者把我葬送
+为何港湾 会变作迷宫
+为何镜中人失去面孔(为什么)
+越珍贵 越浪费
+致命的伤 诞生于亲密
+越追问 越无解
+哪有答案 不过是咒语
+爱不爱我
+谁邀你
+入笼
                     ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",

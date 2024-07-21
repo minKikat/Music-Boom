@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Kpop5 extends StatefulWidget {
+  const Kpop5({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Kpop5> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Kpop5> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Boombayah',
+                    'Magnetic',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/boombayah.png',
+                        'picture/magnetic.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Boombayah',
+                    'Magnetic',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Blackpink',
+                    'ILLIT',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -88,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                         right: 10,
                         child: Icon(
                           Icons.favorite_border,
-                          color: Colors.red,
+                          color: Color.fromRGBO(57, 191, 212, 1),
                         ),
                       ),
                     ],
@@ -160,86 +156,48 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '''
-BLACKPINK in your area
-(Hot) BLACKPINK in your area
-
-Been a bad girl, I know I am
-And I'm so hot, I need a fan
-I don't want a boy, I need a man
-
-Click-clack, bada bing, bada boom
-문을 박차면 모두 날 바라봄
-굳이 애써 노력 안 해도
-모든 남자들은 코피가 팡팡팡
-(팡팡 파라파라 팡팡팡)
-지금 날 위한 축배를 짠짠짠
-(Hands up) 내 손엔 bottle full o' Henny
-니가 말로만 듣던 걔가 나야 Jennie
-
-춤추는 불빛은 날 감싸고 도네
-Black to the Pink 어디서든 특별해
-(Oh, yes) 쳐다 보든 말든 I wanna dance
-Like 따라다라단딴 따라다라단딴 뚜루룹바우
-
-좋아, 이 분위기가 좋아
-좋아, 난 지금 니가 좋아
-정말 반했어
-오늘 밤 너와 춤추고 싶어
-
-붐바야 (ah)
-Yah-yah-yah 붐바야
-Yah-yah-yah 붐바야 yah-yah-yah-yah
-붐붐바 붐붐바 (오빠)
-
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (오빠)
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
-Yah-yah-yah, yah-yah-yah-yah 붐붐바 붐바야
-
-BLACKPINK in your area
-
-Oh 이제 달려야지, 뭘 어떡해?
-난 철없어, 겁없어 man
-Middle finger up, F-U pay me
-'90s baby, I pump up the jam
-달려봐, 달려봐, 오빠야 Lambo
-오늘은 너와 나 젊음을 gamble
-감히 날 막지마, 혹시나 누가 날 막아도
-I'ma go brr, Rambo
-
-니 손이 내 허리를 감싸고 도네
-Front to my back 내 몸매는 특별해
-(Oh, yes) 니 눈빛은 I know you wanna touch
-Like touch, touch, tou-tou-touch 뚜루룹바우
-
-좋아, 이 분위기가 좋아
-좋아, 난 지금 니가 좋아
-정말 멋있어
-오늘 밤 너와 춤추고 싶어
-
-붐바야 (ah)
-Yah-yah-yah 붐바야
-Yah-yah-yah 붐바야 yah-yah-yah-yah
-붐붐바 붐붐바 (오빠)
-
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (오빠)
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
-Yah-yah-yah, yah-yah-yah-yah 붐붐바 붐바야
-
-오늘은 맨 정신 따윈 버리고 (loo-loo-loo-loo)
-하늘을 넘어서 올라 갈 거야 (loo-loo-loo-loo)
-끝을 모르게 빨리 달리고 싶어
-Let's go (hoo-ooh)
-Let's go (hoo-ooh)
-
-오늘은 맨 정신 따윈 버리고 (loo-loo-loo-loo)
-하늘을 넘어서 올라 갈 거야 (loo-loo-loo-loo)
-끝을 모르게 빨리 달리고 싶어
-Let's go (hoo-ooh)
-Let's go (hoo-ooh)
-                    ''',
+                            'Baby, I\'m just trying to play it cool\n'
+                            'But I just can\'t hide that I want you\n\n'
+                            'Wait a minute, 이게 뭐지? (뭐지?)\n'
+                            '내 심장이 lub-dub, 자꾸만 뛰어 (뛰어)\n'
+                            '저 멀리서도, oh, (oh) my (my) gosh (gosh)\n'
+                            '끌어당겨, you\'re my crush, 초능력처럼\n\n'
+                            '거대한 자석이 된 것만 같아 my heart\n'
+                            '네 모든 게 내 맘에 달라붙어버려, boy\n'
+                            'We\'re magnetized, 인정할게\n'
+                            'This time, I want\n\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
+                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
+                            'Dash-da-da, dash-da-da, dash-da, like it\'s magnetic\n'
+                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
+                            'Dash-da-da, dash-da-da, baby, don\'t say no\n\n'
+                            '정반대 같아 our type, 넌 J, 난 완전 P\n'
+                            'S와 N 극이지만, 그래서 끌리지\n'
+                            '내가 만들래 green light, 여잔 배짱이지\n'
+                            'So let\'s go, let\'s go, let\'s go, let\'s go\n\n'
+                            '숨기고 싶지 않아 자석 같은 my heart\n'
+                            '내 맘의 끌림대로 너를 향해 갈게, boy\n'
+                            'We\'re magnetized, 인정할게\n'
+                            'This time, I want\n\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
+                            'No push and pull, 전속력으로 너에게 갈게 (in a rush, in a rush)\n'
+                            'Our chemistry, 난 과몰입해 지금 순간에 (baby, you\'re my crush, you\'re my crush)\n'
+                            'No push and pull, 네게 집중 후회는 안 할래 (gonna dash, gonna dash)\n'
+                            'Never holding back, 직진해, yeah (직진해, yeah), this time, I want\n\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
+                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
+                            'Dash-da-da, dash-da-da, dash-da, like it\'s magnetic\n'
+                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
+                            'Dash-da-da, dash-da-da, baby, don\'t say no',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,

@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class myFavourite2 extends StatefulWidget {
+  const myFavourite2({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<myFavourite2> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<myFavourite2> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Magnetic',
+                    'I’m too Stupid',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/magnetic.png',
+                        'picture/I\'m too stupid.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Magnetic',
+                    'I’m too Stupid',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'ILLIT',
+                    'Chuina Lisha',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -126,7 +122,8 @@ class _MyAppState extends State<MyApp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.skip_previous, color: Colors.white),
+                        icon: const Icon(Icons.skip_previous,
+                            color: Colors.white),
                         onPressed: () {},
                       ),
                       Container(
@@ -160,48 +157,44 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Baby, I\'m just trying to play it cool\n'
-                            'But I just can\'t hide that I want you\n\n'
-                            'Wait a minute, 이게 뭐지? (뭐지?)\n'
-                            '내 심장이 lub-dub, 자꾸만 뛰어 (뛰어)\n'
-                            '저 멀리서도, oh, (oh) my (my) gosh (gosh)\n'
-                            '끌어당겨, you\'re my crush, 초능력처럼\n\n'
-                            '거대한 자석이 된 것만 같아 my heart\n'
-                            '네 모든 게 내 맘에 달라붙어버려, boy\n'
-                            'We\'re magnetized, 인정할게\n'
-                            'This time, I want\n\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
-                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
-                            'Dash-da-da, dash-da-da, dash-da, like it\'s magnetic\n'
-                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
-                            'Dash-da-da, dash-da-da, baby, don\'t say no\n\n'
-                            '정반대 같아 our type, 넌 J, 난 완전 P\n'
-                            'S와 N 극이지만, 그래서 끌리지\n'
-                            '내가 만들래 green light, 여잔 배짱이지\n'
-                            'So let\'s go, let\'s go, let\'s go, let\'s go\n\n'
-                            '숨기고 싶지 않아 자석 같은 my heart\n'
-                            '내 맘의 끌림대로 너를 향해 갈게, boy\n'
-                            'We\'re magnetized, 인정할게\n'
-                            'This time, I want\n\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
-                            'No push and pull, 전속력으로 너에게 갈게 (in a rush, in a rush)\n'
-                            'Our chemistry, 난 과몰입해 지금 순간에 (baby, you\'re my crush, you\'re my crush)\n'
-                            'No push and pull, 네게 집중 후회는 안 할래 (gonna dash, gonna dash)\n'
-                            'Never holding back, 직진해, yeah (직진해, yeah), this time, I want\n\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
-                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
-                            'Dash-da-da, dash-da-da, dash-da, like it\'s magnetic\n'
-                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
-                            'Dash-da-da, dash-da-da, baby, don\'t say no',
+                            '别忘记了还会等你回家的人\n'
+                            '她要等不管夜多深\n'
+                            '有些事尽量别过分\n'
+                            '也能找到一个平衡\n'
+                            '仅存的天真留它一个完整\n\n'
+                            '不想懂爱怎变成这样的\n'
+                            '情愿是要我去为爱负责\n'
+                            '就算自己痛了不想你走了\n\n'
+                            '是不是我太笨\n'
+                            '给不了你最渴望的安稳\n'
+                            '才让你忐忑不安跳动着的心\n'
+                            '才想去越格\n\n'
+                            '是不是我太笨\n'
+                            '只要你说的我全都信任\n'
+                            '不能去拆穿的又何必追问\n\n'
+                            '寂寞的人总是都有它的可恨\n'
+                            '所以看开了也算了\n'
+                            '怎样才是爱一个人\n'
+                            '谁能解开这个疑问\n'
+                            '爱没对错的只有值不值得\n\n'
+                            '不想懂爱怎变成这样的\n'
+                            '情愿是要我去为爱负责\n'
+                            '就算自己痛了不想你走了\n\n'
+                            '是不是我太笨\n'
+                            '给不了你最渴望的安稳\n'
+                            '才让你忐忑不安跳动着的心\n'
+                            '才想去越格\n\n'
+                            '是不是我太笨\n'
+                            '只要你说的我全都信任\n'
+                            '不能去拆穿的又何必追问\n\n'
+                            '是不是我太笨\n'
+                            '给不了你最渴望的安稳\n'
+                            '才让你忐忑不安跳动着的心\n'
+                            '才想去越格\n\n'
+                            '是不是我太笨\n'
+                            '只要你说的我全都信任\n'
+                            '不能去拆穿的又何必追问\n'
+                            '谁叫我爱你呢什么都能忍',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,

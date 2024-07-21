@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Mandopop4 extends StatefulWidget {
+  const Mandopop4({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Mandopop4> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Mandopop4> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Boombayah',
+                    'Best Friend',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/boombayah.png',
+                        'picture/best friend.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Boombayah',
+                    'Best Friend',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Blackpink',
+                    'Eric Chou',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -161,84 +157,53 @@ class _MyAppState extends State<MyApp> {
                         children: [
                           Text(
                             '''
-BLACKPINK in your area
-(Hot) BLACKPINK in your area
+想当星辰 却像路灯
+若爱一个人 切忌爱得太深
+酒后传的讯息 你别当真
+我总感情用事 忘了不可能
 
-Been a bad girl, I know I am
-And I'm so hot, I need a fan
-I don't want a boy, I need a man
+也委屈你 长期容忍
+但我们之间 该用什么相称
+难道非要我爱其他的人
+你才心安理得 卸下了责任
 
-Click-clack, bada bing, bada boom
-문을 박차면 모두 날 바라봄
-굳이 애써 노력 안 해도
-모든 남자들은 코피가 팡팡팡
-(팡팡 파라파라 팡팡팡)
-지금 날 위한 축배를 짠짠짠
-(Hands up) 내 손엔 bottle full o' Henny
-니가 말로만 듣던 걔가 나야 Jennie
+我们不讨论的关系
+很接近却不是爱情
+拥有无数交集 要丢弃太可惜
+我演的恨 真不诚恳
+你最清楚 我是怎样的人
 
-춤추는 불빛은 날 감싸고 도네
-Black to the Pink 어디서든 특별해
-(Oh, yes) 쳐다 보든 말든 I wanna dance
-Like 따라다라단딴 따라다라단딴 뚜루룹바우
+没人不羡慕的关系
+只是没结局的续集
+为什么太熟悉 反而变成距离
+触不到的恋人 化身挚友也像搪塞
+你明知道我不会等到 却放任我等
 
-좋아, 이 분위기가 좋아
-좋아, 난 지금 니가 좋아
-정말 반했어
-오늘 밤 너와 춤추고 싶어
+你正全心 对待的人
+辗转找到我 劝我别再伤神
+其实我真不想一一询问
+从此默不出声 是我的责任
 
-붐바야 (ah)
-Yah-yah-yah 붐바야
-Yah-yah-yah 붐바야 yah-yah-yah-yah
-붐붐바 붐붐바 (오빠)
+我们不说破的关系
+很微妙却不是爱情
+容许这种维系 是我不够争气
+一再追问 何其愚笨
+我也清楚你是怎样的人
 
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (오빠)
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
-Yah-yah-yah, yah-yah-yah-yah 붐붐바 붐바야
+荡气回肠 又能如何
+我最不应该 还害你受困
+进退不得
+我们不讨论的关系
+很接近却不是爱情
+拥有无数交集 要丢弃太可惜
+我演的恨 真不诚恳
+你最清楚 我是怎样的人
 
-BLACKPINK in your area
-
-Oh 이제 달려야지, 뭘 어떡해?
-난 철없어, 겁없어 man
-Middle finger up, F-U pay me
-'90s baby, I pump up the jam
-달려봐, 달려봐, 오빠야 Lambo
-오늘은 너와 나 젊음을 gamble
-감히 날 막지마, 혹시나 누가 날 막아도
-I'ma go brr, Rambo
-
-니 손이 내 허리를 감싸고 도네
-Front to my back 내 몸매는 특별해
-(Oh, yes) 니 눈빛은 I know you wanna touch
-Like touch, touch, tou-tou-touch 뚜루룹바우
-
-좋아, 이 분위기가 좋아
-좋아, 난 지금 니가 좋아
-정말 멋있어
-오늘 밤 너와 춤추고 싶어
-
-붐바야 (ah)
-Yah-yah-yah 붐바야
-Yah-yah-yah 붐바야 yah-yah-yah-yah
-붐붐바 붐붐바 (오빠)
-
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (오빠)
-Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
-Yah-yah-yah, yah-yah-yah-yah 붐붐바 붐바야
-
-오늘은 맨 정신 따윈 버리고 (loo-loo-loo-loo)
-하늘을 넘어서 올라 갈 거야 (loo-loo-loo-loo)
-끝을 모르게 빨리 달리고 싶어
-Let's go (hoo-ooh)
-Let's go (hoo-ooh)
-
-오늘은 맨 정신 따윈 버리고 (loo-loo-loo-loo)
-하늘을 넘어서 올라 갈 거야 (loo-loo-loo-loo)
-끝을 모르게 빨리 달리고 싶어
-Let's go (hoo-ooh)
-Let's go (hoo-ooh)
+没人不羡慕的关系
+只是没结局的续集
+为什么太熟悉 反而变成距离
+触不到的恋人 化身挚友也像搪塞
+你明知道我不会等到 却放任我等
                     ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",

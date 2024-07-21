@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class myFavourite3 extends StatefulWidget {
+  const myFavourite3({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<myFavourite3> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<myFavourite3> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Easy',
+                    'Magnetic',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/easy.png',
+                        'picture/magnetic.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Easy',
+                    'Magnetic',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Le  Sserafim',
+                    'ILLIT',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -88,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                         right: 10,
                         child: Icon(
                           Icons.favorite_border,
-                          color: Color.fromRGBO(57, 191, 212, 1),
+                          color: Colors.red,
                         ),
                       ),
                     ],
@@ -126,7 +122,8 @@ class _MyAppState extends State<MyApp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.skip_previous, color: Colors.white),
+                        icon: const Icon(Icons.skip_previous,
+                            color: Colors.white),
                         onPressed: () {},
                       ),
                       Container(
@@ -160,56 +157,48 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '''
-다친대도, 길을 걸어, kiss me
-쉽지 않음 내가 쉽게 easy
-Stage 위엔 불이 튀어 내 body
-Pull up and I rip it up like ballet
-Damn, I really make it look easy
-Yuh, know that I make it look easy
-
-Clap your hands, 너도 나와 같다면
-Clap your hands now (dream, dream, dream)
-의구심 따윈 그냥 치워
-그냥 말해, "I'm the real one" (sheesh, sheesh, sheesh)
-
-조명 꺼진 뒤의, 난 wander in the night
-Don't know what is right, don't know 'bout my rights
-시기심, 의심, 불신, 이젠 friends of me, yeah
-세상에게 난 반쪽짜리 seraphim, yeah
-
-Mmm, mmm-mmm, mmm
-I've been tryin' so long to show you, show you, show you (oh)
-(I'm the one that you need)
-
-다친대도, 길을 걸어, kiss me
-쉽지 않음 내가 쉽게 easy
-Stage 위엔 불이 튀어 내 body
-Pull up and I rip it up like ballet
-Damn, I really make it look easy
-Yuh, know that I make it look easy
-
-Yuh, know that I make it look easy
-수면 위의 백조가 돼, whippin'
-때론 풀려 나의 다리, but I keep it
-Get set, go, come and see me, I'm the fearless, mmm
-
-나의 발걸음은 매 순간 history, 이건 my way
-영웅처럼 걸어, even if I am not flawless
-편하게만 왔다고?
-날 몰라봤다면, you have to know
-
-Mmm
-I've been tryin' so long to show you, show you, show you
-(I'm the one that you need)
-
-다친대도, 길을 걸어, kiss me (kiss)
-쉽지 않음 내가 쉽게 easy (쉽지 않음 내가 쉽게 easy)
-Stage 위엔 불이 튀어 내 body (that's my body, that's my body)
-Pull up and I rip it up like ballet (yeah, yeah)
-Damn, I really make it look easy (damn, I really make it look easy)
-Yuh, know that I make it look easy
-                    ''',
+                            'Baby, I\'m just trying to play it cool\n'
+                            'But I just can\'t hide that I want you\n\n'
+                            'Wait a minute, 이게 뭐지? (뭐지?)\n'
+                            '내 심장이 lub-dub, 자꾸만 뛰어 (뛰어)\n'
+                            '저 멀리서도, oh, (oh) my (my) gosh (gosh)\n'
+                            '끌어당겨, you\'re my crush, 초능력처럼\n\n'
+                            '거대한 자석이 된 것만 같아 my heart\n'
+                            '네 모든 게 내 맘에 달라붙어버려, boy\n'
+                            'We\'re magnetized, 인정할게\n'
+                            'This time, I want\n\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
+                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
+                            'Dash-da-da, dash-da-da, dash-da, like it\'s magnetic\n'
+                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
+                            'Dash-da-da, dash-da-da, baby, don\'t say no\n\n'
+                            '정반대 같아 our type, 넌 J, 난 완전 P\n'
+                            'S와 N 극이지만, 그래서 끌리지\n'
+                            '내가 만들래 green light, 여잔 배짱이지\n'
+                            'So let\'s go, let\'s go, let\'s go, let\'s go\n\n'
+                            '숨기고 싶지 않아 자석 같은 my heart\n'
+                            '내 맘의 끌림대로 너를 향해 갈게, boy\n'
+                            'We\'re magnetized, 인정할게\n'
+                            'This time, I want\n\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
+                            'No push and pull, 전속력으로 너에게 갈게 (in a rush, in a rush)\n'
+                            'Our chemistry, 난 과몰입해 지금 순간에 (baby, you\'re my crush, you\'re my crush)\n'
+                            'No push and pull, 네게 집중 후회는 안 할래 (gonna dash, gonna dash)\n'
+                            'Never holding back, 직진해, yeah (직진해, yeah), this time, I want\n\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n'
+                            'You, you, you, you, like it\'s magnetic\n'
+                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
+                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
+                            'Dash-da-da, dash-da-da, dash-da, like it\'s magnetic\n'
+                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
+                            'Dash-da-da, dash-da-da, baby, don\'t say no',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,

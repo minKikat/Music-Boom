@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class myFavourite1 extends StatefulWidget {
+  const myFavourite1({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<myFavourite1> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<myFavourite1> {
   double _sliderValue = 0.0;
 
   @override
@@ -88,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                         right: 10,
                         child: Icon(
                           Icons.favorite_border,
-                          color: Color.fromRGBO(57, 191, 212, 1),
+                          color: Colors.red,
                         ),
                       ),
                     ],

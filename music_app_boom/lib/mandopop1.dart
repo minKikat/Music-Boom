@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Mandopop1 extends StatefulWidget {
+  const Mandopop1({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Mandopop1> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Mandopop1> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Long',
+                    'Gull of Alaska',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/long.png',
+                        'picture/Gulf of Alaska.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Long',
+                    'Gulf of Alaska',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Zhang Bi Chen',
+                    'Firdaus',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -160,48 +156,45 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '''
-深海中 那点光 昏暗的诱惑
-她以为 抓得住 名为爱的泡沫
-人心 扑朔 晦涩 幽蓝如墨
-怎么 猜透 看透 故事的结果
-
-为何绚烂 叫人扑空
-为何爱我者予我牢笼
-为何等待 都徒劳无功
-为何囚人者也像困兽(为什么)
-越珍贵 越浪费
-致命的伤 诞生于亲密
-越追问 越无解
-哪有答案 不过是咒语
-都在笼中
-
-出口就 在身后 只需要回头
-为什么 人们却 亲手上一把锁
-不甘 不得 不休 囚人自囚
-为爱 为爱 为爱 都只是为我
-
-为何绚烂 叫人扑空
-为何爱我者予我牢笼
-为何等待 都徒劳无功
-为何囚人者也像困兽(为什么)
-越珍贵 越浪费
-致命的伤 诞生于亲密
-越追问 越无解
-答案写在笼中 只为困住你
-
-为何拥抱 那么疼痛
-为何爱我者把我葬送
-为何港湾 会变作迷宫
-为何镜中人失去面孔(为什么)
-越珍贵 越浪费
-致命的伤 诞生于亲密
-越追问 越无解
-哪有答案 不过是咒语
-爱不爱我
-谁邀你
-入笼
-                    ''',
+                            '上天啊\n'
+                            '难道你看不出我很爱她\n'
+                            '怎么明明相爱的两个人\n'
+                            '你要拆散他们啊\n\n'
+                            '上天啊\n'
+                            '你千万不要偷偷告诉她\n'
+                            '在无数夜深人静的夜晚\n'
+                            '有个人在想她\n\n'
+                            '以后的日子你要好好照顾她\n'
+                            '我不在她身旁你不能欺负她\n'
+                            '别再让人走进她心里\n'
+                            '最后却又离开她\n'
+                            '因为我不愿再看她流泪啦\n\n'
+                            '上天啊\n'
+                            '你是不是在偷偷看笑话\n'
+                            '明知我还没能力保护她\n'
+                            '让我们相遇啊\n\n'
+                            '上天啊\n'
+                            '她最近是否不再失眠啦\n'
+                            '愿世间温情化作一缕风\n'
+                            '代替我拥抱她\n\n'
+                            '以后的日子你要好好照顾她\n'
+                            '我不在他身旁你不能欺负她\n'
+                            '别再让人走进她心里\n'
+                            '最后却又离开她\n'
+                            '因为我不愿再看她流泪啦\n\n'
+                            '希望我的努力能够赶上她\n'
+                            '有天我能给她完整的一个家\n'
+                            '可若妳安排了别人给她\n'
+                            '我会祝福她\n'
+                            '上天你别管我先让她幸福吧\n\n'
+                            '上天啊\n'
+                            '这些晚上我对你说的话\n'
+                            '你别不小心漏嘴告诉她\n'
+                            '我怕会吵醒她\n\n'
+                            '上天啊\n'
+                            '你千万不要偷偷告诉她\n'
+                            '在无数夜深人静的夜晚\n'
+                            '我依旧在想她',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,

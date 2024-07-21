@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Kpop4 extends StatefulWidget {
+  const Kpop4({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Kpop4> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Kpop4> {
   double _sliderValue = 0.0;
 
   @override
@@ -28,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Bubble Gum',
+                    'Smart',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -42,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/bubble gum.png',
+                        'picture/smart.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -51,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Bubble Gum',
+                    'Smart',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -60,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'NewJeans',
+                    'Le Sserafim',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -162,64 +157,63 @@ class _MyAppState extends State<MyApp> {
                         children: [
                           Text(
                             '''
-You just get my heart pump, pumping
-Every time that you're here around me
-노랫 소리가 또 흘러나와, yeah (yeah)
-오늘 오래 걸린 이유
-I'm always so excited to meet you
-내 향기가 널 먼저 찾아가, yeah (먼저 찾아가, yeah)
+I'm a smarter, baby, smarter, smarter, baby, smarter
+하날 보면 열까지, 간파해서 돌파하지
+Wanna be a winner, wanna be a winner
+계획대로 돼가지, 난 나비가 될 애송이
 
-눈 감아도 기억나게, 어디라도 따라갈래
-You're so delicate, 거품 속에 숨었네, uh-uh-uh-uh-uh
-Oh, you make my heart melt away, you're a softie, 구름 같아
-이건 말로 설명 못해, you got me, oh-oh-oh-oh-oh (oh!)
-이미 우린 저기 멀리 높이 있는 풍선같이
-Have you right here in a basket
+원하는 건 승리란 놈
+I call it, "Sugar" (my sugar, sugar)
+Plan대로라면 놓칠 리가 없지
+내 sugar, sugar (my sugar)
 
-Oh, my baby, sweet like bubble gum
-Bouncin' like playin' ball
-더 높이 올려줘
-We're gonna fly away
-Sweet like bubble, yum
-So smooth, soft like a hug
-더 멀리 날려줘
-Let's go far away
+누군 말해, 내가 mean, mean, mean, mean, mean
+신경 안 써, 쉿, 쉿, 쉿, 쉿, 쉿
+내 패배 위에 필 아름다움 대신
+더 강한 이름 "Villain"을 택했지
 
-You're my favorite flavor, bubble gum
-Bubble, bubble, bubble, bubble, bubble, bubble
-Bubble, bubble, bubble gum
+So 그게 바로 me, me, me, me, me
+내겐 보여, see, see, see, see, see
+LE SSERAFIM, 날 이끌어 to victory
 
-얘기 늘어놓아 줄줄
-Like I got nothing better to do
-내 손바닥 안에 쏙 들어와, yeah (yeah)
-나만 알고 싶은 비밀 (oh-oh)
-All I know is I need this feeling (oh-oh)
-내 윤기가 널 먼저 사로잡아, yeah (ooh, oh)
+I'm a smarter, baby, smarter, smarter, baby, smarter
+하날 보면 열까지, 간파해서 돌파하지
+Wanna be a winner, wanna be a winner
+계획대로 돼가지, 난 나비가 될 애송이, I'm a smarter, baby
 
-눈 감아도 기억나게, 어디라도 따라갈래
-You're so delicate, 거품 속에 숨었네, uh-uh-uh-uh-uh
-Oh, you make my heart melt away, you're a softie, 구름 같아
-이건 말로 설명 못해, you got me, oh-oh-oh-oh-oh
+Work hard in secret, 아귀가 착착 맞게
+I planned that, don't be mad
+Plan대로라면 난 될 수가 없지
+그 loser, loser (that loser)
 
-Sweet like bubble gum
-Bouncin' like playin' ball
-더 높이 올려줘
-We're gonna fly away
-Sweet like bubble, yum
-So smooth, soft like a hug
-더 멀리 날려줘
-Let's go far away
+누군 말해, 내가 mean, mean, mean, mean, mean
+신경 안 써, 쉿, 쉿, 쉿, 쉿, 쉿
+내 패배 위에 필 아름다움 대신
+더 강한 이름 "Villain"을 택했지
 
-눈 감아도 기억나게, 어디라도 따라갈래
-You're so delicate, 거품 속에 숨었네, uh-uh-uh-uh-uh
-Oh, you make my heart melt away, you're a softie, 구름 같아
-이건 말로 설명 못해, you got me, oh-oh-oh-oh-oh
-이미 우린 저기 멀리 높이 있는 풍선같이
-Have you right here in a basket
-Oh, my baby, sweet like bubble gum
-이미 우린 저기 멀리 높이 있는 풍선같이
-Have you right here in a basket
-Oh, my baby, sweet like bubble gum
+So I just wanna be me, me, me, me
+내겐 보여, see, see, see, see, see
+LE SSERAFIM, 날 이끌어 to victory
+
+I'm a smarter, baby, smarter, smarter, baby, smarter
+하날 보면 열까지, 간파해서 돌파하지
+Wanna be a winner, wanna be a winner
+계획대로 돼가지, 난 나비가 될 애송이, I'm a smarter, baby
+
+내 시계는 tick-tock, 필요했던 shortcut
+찾아내고 난 잡았지, huh
+누구는 말해, "That's all luck", 난 말해, "No, it's not luck"
+내 땀은 not lying, lying
+
+Don't slow down, 이 삶은 superfast
+Best scheme, 내 머릿속에
+갓생, 난 준비를 끝냈어
+Dinner of the winner, that is what I want to get, alright
+
+Smarter, baby, smarter, smarter, baby, smarter
+하날 보면 열까지, 간파해서 돌파하지
+Wanna be a winner, wanna be a winner
+계획대로 돼가지, 난 나비가 될 애송이, I'm smarter, baby
                     ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",

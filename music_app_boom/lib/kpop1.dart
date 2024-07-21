@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Kpop1 extends StatefulWidget {
+  const Kpop1({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Kpop1> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Kpop1> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'I’m too Stupid',
+                    'Boombayah',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/I\'m too stupid.png',
+                        'picture/boombayah.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'I’m too Stupid',
+                    'Boombayah',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Chuina Lisha',
+                    'Blackpink',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -126,7 +122,12 @@ class _MyAppState extends State<MyApp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
+<<<<<<< HEAD:music_app_boom/lib/kp1.dart
                         icon: const Icon(Icons.skip_previous, color: Colors.white),
+=======
+                        icon: const Icon(Icons.skip_previous,
+                            color: Colors.white),
+>>>>>>> 2184cbb60d2700de564b480eada71ecf77e2b997:music_app_boom/lib/kpop1.dart
                         onPressed: () {},
                       ),
                       Container(
@@ -160,44 +161,86 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '别忘记了还会等你回家的人\n'
-                            '她要等不管夜多深\n'
-                            '有些事尽量别过分\n'
-                            '也能找到一个平衡\n'
-                            '仅存的天真留它一个完整\n\n'
-                            '不想懂爱怎变成这样的\n'
-                            '情愿是要我去为爱负责\n'
-                            '就算自己痛了不想你走了\n\n'
-                            '是不是我太笨\n'
-                            '给不了你最渴望的安稳\n'
-                            '才让你忐忑不安跳动着的心\n'
-                            '才想去越格\n\n'
-                            '是不是我太笨\n'
-                            '只要你说的我全都信任\n'
-                            '不能去拆穿的又何必追问\n\n'
-                            '寂寞的人总是都有它的可恨\n'
-                            '所以看开了也算了\n'
-                            '怎样才是爱一个人\n'
-                            '谁能解开这个疑问\n'
-                            '爱没对错的只有值不值得\n\n'
-                            '不想懂爱怎变成这样的\n'
-                            '情愿是要我去为爱负责\n'
-                            '就算自己痛了不想你走了\n\n'
-                            '是不是我太笨\n'
-                            '给不了你最渴望的安稳\n'
-                            '才让你忐忑不安跳动着的心\n'
-                            '才想去越格\n\n'
-                            '是不是我太笨\n'
-                            '只要你说的我全都信任\n'
-                            '不能去拆穿的又何必追问\n\n'
-                            '是不是我太笨\n'
-                            '给不了你最渴望的安稳\n'
-                            '才让你忐忑不安跳动着的心\n'
-                            '才想去越格\n\n'
-                            '是不是我太笨\n'
-                            '只要你说的我全都信任\n'
-                            '不能去拆穿的又何必追问\n'
-                            '谁叫我爱你呢什么都能忍',
+                            '''
+BLACKPINK in your area
+(Hot) BLACKPINK in your area
+
+Been a bad girl, I know I am
+And I'm so hot, I need a fan
+I don't want a boy, I need a man
+
+Click-clack, bada bing, bada boom
+문을 박차면 모두 날 바라봄
+굳이 애써 노력 안 해도
+모든 남자들은 코피가 팡팡팡
+(팡팡 파라파라 팡팡팡)
+지금 날 위한 축배를 짠짠짠
+(Hands up) 내 손엔 bottle full o' Henny
+니가 말로만 듣던 걔가 나야 Jennie
+
+춤추는 불빛은 날 감싸고 도네
+Black to the Pink 어디서든 특별해
+(Oh, yes) 쳐다 보든 말든 I wanna dance
+Like 따라다라단딴 따라다라단딴 뚜루룹바우
+
+좋아, 이 분위기가 좋아
+좋아, 난 지금 니가 좋아
+정말 반했어
+오늘 밤 너와 춤추고 싶어
+
+붐바야 (ah)
+Yah-yah-yah 붐바야
+Yah-yah-yah 붐바야 yah-yah-yah-yah
+붐붐바 붐붐바 (오빠)
+
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (오빠)
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
+Yah-yah-yah, yah-yah-yah-yah 붐붐바 붐바야
+
+BLACKPINK in your area
+
+Oh 이제 달려야지, 뭘 어떡해?
+난 철없어, 겁없어 man
+Middle finger up, F-U pay me
+'90s baby, I pump up the jam
+달려봐, 달려봐, 오빠야 Lambo
+오늘은 너와 나 젊음을 gamble
+감히 날 막지마, 혹시나 누가 날 막아도
+I'ma go brr, Rambo
+
+니 손이 내 허리를 감싸고 도네
+Front to my back 내 몸매는 특별해
+(Oh, yes) 니 눈빛은 I know you wanna touch
+Like touch, touch, tou-tou-touch 뚜루룹바우
+
+좋아, 이 분위기가 좋아
+좋아, 난 지금 니가 좋아
+정말 멋있어
+오늘 밤 너와 춤추고 싶어
+
+붐바야 (ah)
+Yah-yah-yah 붐바야
+Yah-yah-yah 붐바야 yah-yah-yah-yah
+붐붐바 붐붐바 (오빠)
+
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (오빠)
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
+Yah-yah-yah, yah-yah-yah-yah 붐붐바 붐바야
+
+오늘은 맨 정신 따윈 버리고 (loo-loo-loo-loo)
+하늘을 넘어서 올라 갈 거야 (loo-loo-loo-loo)
+끝을 모르게 빨리 달리고 싶어
+Let's go (hoo-ooh)
+Let's go (hoo-ooh)
+
+오늘은 맨 정신 따윈 버리고 (loo-loo-loo-loo)
+하늘을 넘어서 올라 갈 거야 (loo-loo-loo-loo)
+끝을 모르게 빨리 달리고 싶어
+Let's go (hoo-ooh)
+Let's go (hoo-ooh)
+                    ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,

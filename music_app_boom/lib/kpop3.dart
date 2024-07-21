@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Kpop3 extends StatefulWidget {
+  const Kpop3({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Kpop3> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Kpop3> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Magnetic',
+                    'Bubble Gum',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/magnetic.png',
+                        'picture/bubble gum.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Magnetic',
+                    'Bubble Gum',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'ILLIT',
+                    'NewJeans',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -160,48 +156,66 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Baby, I\'m just trying to play it cool\n'
-                            'But I just can\'t hide that I want you\n\n'
-                            'Wait a minute, 이게 뭐지? (뭐지?)\n'
-                            '내 심장이 lub-dub, 자꾸만 뛰어 (뛰어)\n'
-                            '저 멀리서도, oh, (oh) my (my) gosh (gosh)\n'
-                            '끌어당겨, you\'re my crush, 초능력처럼\n\n'
-                            '거대한 자석이 된 것만 같아 my heart\n'
-                            '네 모든 게 내 맘에 달라붙어버려, boy\n'
-                            'We\'re magnetized, 인정할게\n'
-                            'This time, I want\n\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
-                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
-                            'Dash-da-da, dash-da-da, dash-da, like it\'s magnetic\n'
-                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
-                            'Dash-da-da, dash-da-da, baby, don\'t say no\n\n'
-                            '정반대 같아 our type, 넌 J, 난 완전 P\n'
-                            'S와 N 극이지만, 그래서 끌리지\n'
-                            '내가 만들래 green light, 여잔 배짱이지\n'
-                            'So let\'s go, let\'s go, let\'s go, let\'s go\n\n'
-                            '숨기고 싶지 않아 자석 같은 my heart\n'
-                            '내 맘의 끌림대로 너를 향해 갈게, boy\n'
-                            'We\'re magnetized, 인정할게\n'
-                            'This time, I want\n\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
-                            'No push and pull, 전속력으로 너에게 갈게 (in a rush, in a rush)\n'
-                            'Our chemistry, 난 과몰입해 지금 순간에 (baby, you\'re my crush, you\'re my crush)\n'
-                            'No push and pull, 네게 집중 후회는 안 할래 (gonna dash, gonna dash)\n'
-                            'Never holding back, 직진해, yeah (직진해, yeah), this time, I want\n\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n'
-                            'You, you, you, you, like it\'s magnetic\n'
-                            'You, you, you, you, you, you, you, you, super 이끌림\n\n'
-                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
-                            'Dash-da-da, dash-da-da, dash-da, like it\'s magnetic\n'
-                            'Bae, bae, bae, bae, bae, bae, bae, bae, bae\n'
-                            'Dash-da-da, dash-da-da, baby, don\'t say no',
+                            '''
+You just get my heart pump, pumping
+Every time that you're here around me
+노랫 소리가 또 흘러나와, yeah (yeah)
+오늘 오래 걸린 이유
+I'm always so excited to meet you
+내 향기가 널 먼저 찾아가, yeah (먼저 찾아가, yeah)
+
+눈 감아도 기억나게, 어디라도 따라갈래
+You're so delicate, 거품 속에 숨었네, uh-uh-uh-uh-uh
+Oh, you make my heart melt away, you're a softie, 구름 같아
+이건 말로 설명 못해, you got me, oh-oh-oh-oh-oh (oh!)
+이미 우린 저기 멀리 높이 있는 풍선같이
+Have you right here in a basket
+
+Oh, my baby, sweet like bubble gum
+Bouncin' like playin' ball
+더 높이 올려줘
+We're gonna fly away
+Sweet like bubble, yum
+So smooth, soft like a hug
+더 멀리 날려줘
+Let's go far away
+
+You're my favorite flavor, bubble gum
+Bubble, bubble, bubble, bubble, bubble, bubble
+Bubble, bubble, bubble gum
+
+얘기 늘어놓아 줄줄
+Like I got nothing better to do
+내 손바닥 안에 쏙 들어와, yeah (yeah)
+나만 알고 싶은 비밀 (oh-oh)
+All I know is I need this feeling (oh-oh)
+내 윤기가 널 먼저 사로잡아, yeah (ooh, oh)
+
+눈 감아도 기억나게, 어디라도 따라갈래
+You're so delicate, 거품 속에 숨었네, uh-uh-uh-uh-uh
+Oh, you make my heart melt away, you're a softie, 구름 같아
+이건 말로 설명 못해, you got me, oh-oh-oh-oh-oh
+
+Sweet like bubble gum
+Bouncin' like playin' ball
+더 높이 올려줘
+We're gonna fly away
+Sweet like bubble, yum
+So smooth, soft like a hug
+더 멀리 날려줘
+Let's go far away
+
+눈 감아도 기억나게, 어디라도 따라갈래
+You're so delicate, 거품 속에 숨었네, uh-uh-uh-uh-uh
+Oh, you make my heart melt away, you're a softie, 구름 같아
+이건 말로 설명 못해, you got me, oh-oh-oh-oh-oh
+이미 우린 저기 멀리 높이 있는 풍선같이
+Have you right here in a basket
+Oh, my baby, sweet like bubble gum
+이미 우린 저기 멀리 높이 있는 풍선같이
+Have you right here in a basket
+Oh, my baby, sweet like bubble gum
+                    ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,

@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class myFavourite5 extends StatefulWidget {
+  const myFavourite5({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<myFavourite5> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<myFavourite5> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Smart',
+                    'Boombayah',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/smart.png',
+                        'picture/boombayah.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Smart',
+                    'Boombayah',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Le Sserafim',
+                    'Blackpink',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -88,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                         right: 10,
                         child: Icon(
                           Icons.favorite_border,
-                          color: Color.fromRGBO(57, 191, 212, 1),
+                          color: Colors.red,
                         ),
                       ),
                     ],
@@ -161,63 +157,84 @@ class _MyAppState extends State<MyApp> {
                         children: [
                           Text(
                             '''
-I'm a smarter, baby, smarter, smarter, baby, smarter
-하날 보면 열까지, 간파해서 돌파하지
-Wanna be a winner, wanna be a winner
-계획대로 돼가지, 난 나비가 될 애송이
+BLACKPINK in your area
+(Hot) BLACKPINK in your area
 
-원하는 건 승리란 놈
-I call it, "Sugar" (my sugar, sugar)
-Plan대로라면 놓칠 리가 없지
-내 sugar, sugar (my sugar)
+Been a bad girl, I know I am
+And I'm so hot, I need a fan
+I don't want a boy, I need a man
 
-누군 말해, 내가 mean, mean, mean, mean, mean
-신경 안 써, 쉿, 쉿, 쉿, 쉿, 쉿
-내 패배 위에 필 아름다움 대신
-더 강한 이름 "Villain"을 택했지
+Click-clack, bada bing, bada boom
+문을 박차면 모두 날 바라봄
+굳이 애써 노력 안 해도
+모든 남자들은 코피가 팡팡팡
+(팡팡 파라파라 팡팡팡)
+지금 날 위한 축배를 짠짠짠
+(Hands up) 내 손엔 bottle full o' Henny
+니가 말로만 듣던 걔가 나야 Jennie
 
-So 그게 바로 me, me, me, me, me
-내겐 보여, see, see, see, see, see
-LE SSERAFIM, 날 이끌어 to victory
+춤추는 불빛은 날 감싸고 도네
+Black to the Pink 어디서든 특별해
+(Oh, yes) 쳐다 보든 말든 I wanna dance
+Like 따라다라단딴 따라다라단딴 뚜루룹바우
 
-I'm a smarter, baby, smarter, smarter, baby, smarter
-하날 보면 열까지, 간파해서 돌파하지
-Wanna be a winner, wanna be a winner
-계획대로 돼가지, 난 나비가 될 애송이, I'm a smarter, baby
+좋아, 이 분위기가 좋아
+좋아, 난 지금 니가 좋아
+정말 반했어
+오늘 밤 너와 춤추고 싶어
 
-Work hard in secret, 아귀가 착착 맞게
-I planned that, don't be mad
-Plan대로라면 난 될 수가 없지
-그 loser, loser (that loser)
+붐바야 (ah)
+Yah-yah-yah 붐바야
+Yah-yah-yah 붐바야 yah-yah-yah-yah
+붐붐바 붐붐바 (오빠)
 
-누군 말해, 내가 mean, mean, mean, mean, mean
-신경 안 써, 쉿, 쉿, 쉿, 쉿, 쉿
-내 패배 위에 필 아름다움 대신
-더 강한 이름 "Villain"을 택했지
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (오빠)
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
+Yah-yah-yah, yah-yah-yah-yah 붐붐바 붐바야
 
-So I just wanna be me, me, me, me
-내겐 보여, see, see, see, see, see
-LE SSERAFIM, 날 이끌어 to victory
+BLACKPINK in your area
 
-I'm a smarter, baby, smarter, smarter, baby, smarter
-하날 보면 열까지, 간파해서 돌파하지
-Wanna be a winner, wanna be a winner
-계획대로 돼가지, 난 나비가 될 애송이, I'm a smarter, baby
+Oh 이제 달려야지, 뭘 어떡해?
+난 철없어, 겁없어 man
+Middle finger up, F-U pay me
+'90s baby, I pump up the jam
+달려봐, 달려봐, 오빠야 Lambo
+오늘은 너와 나 젊음을 gamble
+감히 날 막지마, 혹시나 누가 날 막아도
+I'ma go brr, Rambo
 
-내 시계는 tick-tock, 필요했던 shortcut
-찾아내고 난 잡았지, huh
-누구는 말해, "That's all luck", 난 말해, "No, it's not luck"
-내 땀은 not lying, lying
+니 손이 내 허리를 감싸고 도네
+Front to my back 내 몸매는 특별해
+(Oh, yes) 니 눈빛은 I know you wanna touch
+Like touch, touch, tou-tou-touch 뚜루룹바우
 
-Don't slow down, 이 삶은 superfast
-Best scheme, 내 머릿속에
-갓생, 난 준비를 끝냈어
-Dinner of the winner, that is what I want to get, alright
+좋아, 이 분위기가 좋아
+좋아, 난 지금 니가 좋아
+정말 멋있어
+오늘 밤 너와 춤추고 싶어
 
-Smarter, baby, smarter, smarter, baby, smarter
-하날 보면 열까지, 간파해서 돌파하지
-Wanna be a winner, wanna be a winner
-계획대로 돼가지, 난 나비가 될 애송이, I'm smarter, baby
+붐바야 (ah)
+Yah-yah-yah 붐바야
+Yah-yah-yah 붐바야 yah-yah-yah-yah
+붐붐바 붐붐바 (오빠)
+
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (오빠)
+Yah-yah-yah, yah-yah-yah, yah-yah-yah-yah (loo-loo-loo-loo)
+Yah-yah-yah, yah-yah-yah-yah 붐붐바 붐바야
+
+오늘은 맨 정신 따윈 버리고 (loo-loo-loo-loo)
+하늘을 넘어서 올라 갈 거야 (loo-loo-loo-loo)
+끝을 모르게 빨리 달리고 싶어
+Let's go (hoo-ooh)
+Let's go (hoo-ooh)
+
+오늘은 맨 정신 따윈 버리고 (loo-loo-loo-loo)
+하늘을 넘어서 올라 갈 거야 (loo-loo-loo-loo)
+끝을 모르게 빨리 달리고 싶어
+Let's go (hoo-ooh)
+Let's go (hoo-ooh)
                     ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",

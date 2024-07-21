@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Mandopop3 extends StatefulWidget {
+  const Mandopop3({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Mandopop3> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Mandopop3> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Gull of Alaska',
+                    'A Friend Like You',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/Gulf of Alaska.png',
+                        'picture/a friend like you.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Gulf of Alaska',
+                    'A Friend Like You',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Firdaus',
+                    'Lu Hu',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -88,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                         right: 10,
                         child: Icon(
                           Icons.favorite_border,
-                          color: Colors.red,
+                          color: Color.fromRGBO(57, 191, 212, 1),
                         ),
                       ),
                     ],
@@ -160,45 +156,64 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '上天啊\n'
-                            '难道你看不出我很爱她\n'
-                            '怎么明明相爱的两个人\n'
-                            '你要拆散他们啊\n\n'
-                            '上天啊\n'
-                            '你千万不要偷偷告诉她\n'
-                            '在无数夜深人静的夜晚\n'
-                            '有个人在想她\n\n'
-                            '以后的日子你要好好照顾她\n'
-                            '我不在她身旁你不能欺负她\n'
-                            '别再让人走进她心里\n'
-                            '最后却又离开她\n'
-                            '因为我不愿再看她流泪啦\n\n'
-                            '上天啊\n'
-                            '你是不是在偷偷看笑话\n'
-                            '明知我还没能力保护她\n'
-                            '让我们相遇啊\n\n'
-                            '上天啊\n'
-                            '她最近是否不再失眠啦\n'
-                            '愿世间温情化作一缕风\n'
-                            '代替我拥抱她\n\n'
-                            '以后的日子你要好好照顾她\n'
-                            '我不在他身旁你不能欺负她\n'
-                            '别再让人走进她心里\n'
-                            '最后却又离开她\n'
-                            '因为我不愿再看她流泪啦\n\n'
-                            '希望我的努力能够赶上她\n'
-                            '有天我能给她完整的一个家\n'
-                            '可若妳安排了别人给她\n'
-                            '我会祝福她\n'
-                            '上天你别管我先让她幸福吧\n\n'
-                            '上天啊\n'
-                            '这些晚上我对你说的话\n'
-                            '你别不小心漏嘴告诉她\n'
-                            '我怕会吵醒她\n\n'
-                            '上天啊\n'
-                            '你千万不要偷偷告诉她\n'
-                            '在无数夜深人静的夜晚\n'
-                            '我依旧在想她',
+                            '''
+开始斗嘴是我 作对是我
+最不爽你就是我
+没想到我们会成为好朋友
+现在爱你是我 挺你是我
+就算肉麻也是我
+多幸运有像你这样的朋友
+
+时光偷走遇见转角送来错过
+四季飞快像坐过山车
+那些沙雕的 深刻的
+专属我们的
+如果这辈子做朋友你都不嫌多
+下辈子够不够
+我还想要像你这样的朋友
+
+相信只有我才能懂你的黑色幽默
+我喜欢周杰伦你却说歌王是陶喆
+意见不合 互不干涉
+千千万万个孤立无援时刻
+还是你罩我
+
+隔壁爱你的圆脸女孩我偷偷爱着
+听说你爱的漂亮姐姐疯狂迷恋我
+你不必懂 恋爱功课
+就算全世界不要你的时候
+身后还有我
+
+开始斗嘴是我 作对是我
+最不爽你就是我
+没想到我们会成为好朋友
+现在爱你是我 挺你是我
+就算肉麻也是我
+多幸运有像你这样的朋友
+
+时光偷走遇见转角送来错过
+四季飞快像坐过山车
+那些沙雕的 深刻的
+专属我们的
+如果这辈子做朋友你都不嫌多
+下辈子够不够
+我还想要像你这样的朋友
+
+开始斗嘴是我 作对是我
+最不爽你就是我
+没想到我们会成为好朋友
+现在爱你是我 挺你是我
+就算肉麻也是我
+多幸运有像你这样的朋友
+
+时光偷走遇见转角送来错过
+四季飞快像坐过山车
+那些沙雕的 深刻的
+专属我们的
+如果这辈子做朋友你都不嫌多
+下辈子够不够
+我还想要像你这样的朋友
+                    ''',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,

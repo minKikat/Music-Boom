@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Mandopop5 extends StatefulWidget {
+  const Mandopop5({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Mandopop5> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Mandopop5> {
   double _sliderValue = 0.0;
 
   @override
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'A Friend Like You',
+                    'I’m too Stupid',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
@@ -41,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/a friend like you.png',
+                        'picture/I\'m too stupid.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'A Friend Like You',
+                    'I’m too Stupid',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         fontWeight: FontWeight.bold,
@@ -59,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    'Lu Hu',
+                    'Chuina Lisha',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
@@ -126,7 +122,8 @@ class _MyAppState extends State<MyApp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.skip_previous, color: Colors.white),
+                        icon: const Icon(Icons.skip_previous,
+                            color: Colors.white),
                         onPressed: () {},
                       ),
                       Container(
@@ -160,64 +157,44 @@ class _MyAppState extends State<MyApp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '''
-开始斗嘴是我 作对是我
-最不爽你就是我
-没想到我们会成为好朋友
-现在爱你是我 挺你是我
-就算肉麻也是我
-多幸运有像你这样的朋友
-
-时光偷走遇见转角送来错过
-四季飞快像坐过山车
-那些沙雕的 深刻的
-专属我们的
-如果这辈子做朋友你都不嫌多
-下辈子够不够
-我还想要像你这样的朋友
-
-相信只有我才能懂你的黑色幽默
-我喜欢周杰伦你却说歌王是陶喆
-意见不合 互不干涉
-千千万万个孤立无援时刻
-还是你罩我
-
-隔壁爱你的圆脸女孩我偷偷爱着
-听说你爱的漂亮姐姐疯狂迷恋我
-你不必懂 恋爱功课
-就算全世界不要你的时候
-身后还有我
-
-开始斗嘴是我 作对是我
-最不爽你就是我
-没想到我们会成为好朋友
-现在爱你是我 挺你是我
-就算肉麻也是我
-多幸运有像你这样的朋友
-
-时光偷走遇见转角送来错过
-四季飞快像坐过山车
-那些沙雕的 深刻的
-专属我们的
-如果这辈子做朋友你都不嫌多
-下辈子够不够
-我还想要像你这样的朋友
-
-开始斗嘴是我 作对是我
-最不爽你就是我
-没想到我们会成为好朋友
-现在爱你是我 挺你是我
-就算肉麻也是我
-多幸运有像你这样的朋友
-
-时光偷走遇见转角送来错过
-四季飞快像坐过山车
-那些沙雕的 深刻的
-专属我们的
-如果这辈子做朋友你都不嫌多
-下辈子够不够
-我还想要像你这样的朋友
-                    ''',
+                            '别忘记了还会等你回家的人\n'
+                            '她要等不管夜多深\n'
+                            '有些事尽量别过分\n'
+                            '也能找到一个平衡\n'
+                            '仅存的天真留它一个完整\n\n'
+                            '不想懂爱怎变成这样的\n'
+                            '情愿是要我去为爱负责\n'
+                            '就算自己痛了不想你走了\n\n'
+                            '是不是我太笨\n'
+                            '给不了你最渴望的安稳\n'
+                            '才让你忐忑不安跳动着的心\n'
+                            '才想去越格\n\n'
+                            '是不是我太笨\n'
+                            '只要你说的我全都信任\n'
+                            '不能去拆穿的又何必追问\n\n'
+                            '寂寞的人总是都有它的可恨\n'
+                            '所以看开了也算了\n'
+                            '怎样才是爱一个人\n'
+                            '谁能解开这个疑问\n'
+                            '爱没对错的只有值不值得\n\n'
+                            '不想懂爱怎变成这样的\n'
+                            '情愿是要我去为爱负责\n'
+                            '就算自己痛了不想你走了\n\n'
+                            '是不是我太笨\n'
+                            '给不了你最渴望的安稳\n'
+                            '才让你忐忑不安跳动着的心\n'
+                            '才想去越格\n\n'
+                            '是不是我太笨\n'
+                            '只要你说的我全都信任\n'
+                            '不能去拆穿的又何必追问\n\n'
+                            '是不是我太笨\n'
+                            '给不了你最渴望的安稳\n'
+                            '才让你忐忑不安跳动着的心\n'
+                            '才想去越格\n\n'
+                            '是不是我太笨\n'
+                            '只要你说的我全都信任\n'
+                            '不能去拆穿的又何必追问\n'
+                            '谁叫我爱你呢什么都能忍',
                             style: TextStyle(
                                 fontFamily: "Century Gothic",
                                 color: Colors.white,
