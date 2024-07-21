@@ -40,7 +40,7 @@ class Mandopop extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 5), // Space above texts
+            const SizedBox(height: 5), // Space above the texts
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
