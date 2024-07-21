@@ -122,12 +122,8 @@ class _MyAppState extends State<Kpop1> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-<<<<<<< HEAD:music_app_boom/lib/kp1.dart
-                        icon: const Icon(Icons.skip_previous, color: Colors.white),
-=======
                         icon: const Icon(Icons.skip_previous,
                             color: Colors.white),
->>>>>>> 2184cbb60d2700de564b480eada71ecf77e2b997:music_app_boom/lib/kpop1.dart
                         onPressed: () {},
                       ),
                       Container(

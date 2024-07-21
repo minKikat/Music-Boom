@@ -122,7 +122,8 @@ class _MyAppState extends State<Kpop2> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.skip_previous, color: Colors.white),
+                        icon: const Icon(Icons.skip_previous,
+                            color: Colors.white),
                         onPressed: () {},
                       ),
                       Container(
