@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,16 +17,16 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => Login(),
-        '/forgetPassword': (context) => ForgetPasswordScreen(),
-        '/signUp': (context) => SignUpScreen(),
+        '/': (context) => const Login(),
+        '/forgetPassword': (context) => const ForgetPasswordScreen(),
+        '/signUp': (context) => const SignUpScreen(),
       },
     );
   }
 }
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({super.key});
 
   @override
   _LoginState createState() => _LoginState();
@@ -49,7 +51,7 @@ class _LoginState extends State<Login> {
               Container(
                 width: 150,
                 height: 150,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
                     image: AssetImage('lib/logo.jpeg'),
@@ -64,24 +66,24 @@ class _LoginState extends State<Login> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
-              TextField(
+              const TextField(
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.email, color: Colors.white),
-                  border: const OutlineInputBorder(
+                  prefixIcon: Icon(Icons.email, color: Colors.white),
+                  border: OutlineInputBorder(
                     borderSide: BorderSide.none,
                   ),
                   labelText: 'Email',
                   filled: true,
-                  fillColor: const Color.fromARGB(255, 20, 20, 20),
-                  focusedBorder: const OutlineInputBorder(
+                  fillColor: Color.fromARGB(255, 20, 20, 20),
+                  focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
                   ),
-                  enabledBorder: const OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
                   ),
-                  labelStyle: const TextStyle(color: Colors.white),
+                  labelStyle: TextStyle(color: Colors.white),
                 ),
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 30), // 调整TextField和按钮之间的间距
               TextField(
@@ -144,7 +146,7 @@ class _LoginState extends State<Login> {
                   children: [
                     TextSpan(
                       text: 'Login',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color.fromARGB(255, 62, 200, 235),
                         decoration: TextDecoration.underline,
                       ),
@@ -166,6 +168,8 @@ class _LoginState extends State<Login> {
 }
 
 class ForgetPasswordScreen extends StatelessWidget {
+  const ForgetPasswordScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,8 +177,8 @@ class ForgetPasswordScreen extends StatelessWidget {
         title: const Text('Forget Password'),
         backgroundColor: Colors.black,
       ),
-      body: Center(
-        child: const Text(
+      body: const Center(
+        child: Text(
           'Forget Password Screen',
           style: TextStyle(fontSize: 24),
         ),
@@ -184,6 +188,8 @@ class ForgetPasswordScreen extends StatelessWidget {
 }
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,8 +197,8 @@ class SignUpScreen extends StatelessWidget {
         title: const Text('Sign Up'),
         backgroundColor: Colors.black,
       ),
-      body: Center(
-        child: const Text(
+      body: const Center(
+        child: Text(
           'Sign Up Screen',
           style: TextStyle(fontSize: 24),
         ),

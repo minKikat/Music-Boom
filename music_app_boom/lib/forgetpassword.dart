@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({super.key});
 
   @override
   _LoginState createState() => _LoginState();
@@ -26,7 +26,7 @@ class _LoginState extends State<Login> {
               Container(
                 width: 150,
                 height: 150,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
                     image: AssetImage('lib/logo.jpeg'),
@@ -41,26 +41,26 @@ class _LoginState extends State<Login> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
-              TextField(
+              const TextField(
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.email, color: Colors.white),
-                  border: const OutlineInputBorder(
+                  prefixIcon: Icon(Icons.email, color: Colors.white),
+                  border: OutlineInputBorder(
                     borderSide: BorderSide.none, // Remove border color
                   ),
                   labelText: 'Email',
                   filled: true,
-                  fillColor: const Color.fromARGB(
+                  fillColor: Color.fromARGB(
                       255, 20, 20, 20), // Set background color to dark grey
-                  focusedBorder: const OutlineInputBorder(
+                  focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide.none, // Remove border color
                   ),
-                  enabledBorder: const OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide.none, // Remove border color
                   ),
-                  labelStyle: const TextStyle(
+                  labelStyle: TextStyle(
                       color: Colors.white), // Change the label color to white
                 ),
-                style: const TextStyle(
+                style: TextStyle(
                     color: Colors.white), // Change text color to white
               ),
               const SizedBox(
@@ -151,7 +151,7 @@ class _LoginState extends State<Login> {
                         255, 62, 200, 235), // Change to your preferred color
                     foregroundColor:
                         Colors.white, // Change the text color to white
-                    fixedSize: Size.fromHeight(50), // Adjust button height
+                    fixedSize: const Size.fromHeight(50), // Adjust button height
                   ),
                 ),
               ),

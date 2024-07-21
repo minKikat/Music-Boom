@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Bubble Gum',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
                       fontSize: 24,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Align(
                     alignment: Alignment.center,
                     child: ClipRRect(
@@ -49,8 +49,8 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     'Bubble Gum',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
@@ -58,15 +58,15 @@ class _MyAppState extends State<MyApp> {
                         color: Colors.white,
                         fontSize: 20),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     'NewJeans',
                     style: TextStyle(
                         fontFamily: "Century Gothic",
                         color: Colors.white,
                         fontSize: 18),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Stack(
                     alignment: Alignment.topRight,
                     children: [
@@ -80,11 +80,11 @@ class _MyAppState extends State<MyApp> {
                               _sliderValue = value;
                             });
                           },
-                          activeColor: Color.fromRGBO(57, 191, 212, 1),
+                          activeColor: const Color.fromRGBO(57, 191, 212, 1),
                           inactiveColor: Colors.white,
                         ),
                       ),
-                      Positioned(
+                      const Positioned(
                         top: 0,
                         right: 10,
                         child: Icon(
@@ -94,12 +94,12 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 5),
-                  Row(
+                  const SizedBox(height: 5),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
+                        padding: EdgeInsets.only(left: 16.0),
                         child: Text(
                           '0:00', // Left side text (start time)
                           style: TextStyle(
@@ -109,7 +109,7 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
+                        padding: EdgeInsets.only(right: 16.0),
                         child: Text(
                           '2:43', // Right side text (end time)
                           style: TextStyle(
@@ -120,44 +120,44 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                       height:
                           5), // Increased spacing between slider and text block
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: Icon(Icons.skip_previous, color: Colors.white),
+                        icon: const Icon(Icons.skip_previous, color: Colors.white),
                         onPressed: () {},
                       ),
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color.fromRGBO(
                               57, 191, 212, 1), // Blue circle background
                           shape: BoxShape.circle,
                         ),
                         child: IconButton(
-                          icon: Icon(Icons.play_arrow_outlined,
+                          icon: const Icon(Icons.play_arrow_outlined,
                               color: Colors.white),
                           onPressed: () {},
                         ),
                       ),
                       IconButton(
-                        icon: Icon(Icons.skip_next, color: Colors.white),
+                        icon: const Icon(Icons.skip_next, color: Colors.white),
                         onPressed: () {},
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                       height:
                           30), // Increased spacing between icons and text block
                   Align(
                     alignment: Alignment.center,
                     child: Container(
-                      color: Color.fromRGBO(57, 191, 212, 1),
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
+                      color: const Color.fromRGBO(57, 191, 212, 1),
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
