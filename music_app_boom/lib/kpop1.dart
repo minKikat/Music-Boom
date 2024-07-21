@@ -134,7 +134,7 @@ class _MyAppState extends State<Kpop1> {
                         ),
                         child: IconButton(
                           icon: const Icon(Icons.play_arrow_outlined,
-                              color: Colors.red),
+                              color: Colors.white),
                           onPressed: () {},
                         ),
                       ),
