@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music_app_boom/kpop.dart';
-import 'package:music_app_boom/kpop1.dart';
 import 'package:music_app_boom/kpop2.dart';
 import 'package:music_app_boom/kpop4.dart';
 
