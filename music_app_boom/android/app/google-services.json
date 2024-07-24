@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "115256839024",
+    "project_id": "music-app-boom",
+    "storage_bucket": "music-app-boom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115256839024:android:e6c8ee7867f32586dbddb5",
+        "android_client_info": {
+          "package_name": "com.music_app_boom.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw7VQcwuyRjQfM3mYdA91_LYd_c8d5JAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115256839024:android:13ef51be44a3de68dbddb5",
+        "android_client_info": {
+          "package_name": "com.music_boom.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw7VQcwuyRjQfM3mYdA91_LYd_c8d5JAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
