@@ -46,4 +46,6 @@ flutter:
     - picture/magnetic.png
     - picture/logo.png
 
+    # font:
+
   uses-material-design: true
