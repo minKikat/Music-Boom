@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/kpop.dart';
+import 'package:music_app_boom/kpop2.dart';
+import 'package:music_app_boom/kpop5.dart';
 
 class Kpop1 extends StatefulWidget {
   const Kpop1({super.key});
 
   @override
-  State<Kpop1> createState() => _MyAppState();
+  State<Kpop1> createState() => _Kpop1State();
 }
 
-class _MyAppState extends State<Kpop1> {
+class _Kpop1State extends State<Kpop1> {
   double _sliderValue = 0.0;
+
+  bool isPlaying = false;
+  bool isFavorite = false;
+
+  void togglePlayPause() {
+    setState(() {
+      isPlaying = !isPlaying;
+    });
+  }
+
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +40,13 @@ class _MyAppState extends State<Kpop1> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (BuildContext context) => const Kpop()));
+                    },
+                  ),
                   const Text(
                     'Boombayah',
                     style: TextStyle(
@@ -79,12 +104,17 @@ class _MyAppState extends State<Kpop1> {
                           inactiveColor: Colors.white,
                         ),
                       ),
-                      const Positioned(
-                        top: 0,
+                      Positioned(
+                        top: -10,
                         right: 10,
-                        child: Icon(
-                          Icons.favorite_border,
-                          color: Color.fromRGBO(57, 191, 212, 1),
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.favorite_border,
+                            color: isFavorite
+                                ? Colors.red
+                                : Color.fromRGBO(57, 191, 212, 1),
+                          ),
+                          onPressed: toggleFavorite,
                         ),
                       ),
                     ],
@@ -122,9 +152,17 @@ class _MyAppState extends State<Kpop1> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.skip_previous,
-                            color: Colors.white),
-                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.skip_previous,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Kpop5()));
+                        },
                       ),
                       Container(
                         decoration: const BoxDecoration(
@@ -133,14 +171,25 @@ class _MyAppState extends State<Kpop1> {
                           shape: BoxShape.circle,
                         ),
                         child: IconButton(
-                          icon: const Icon(Icons.play_arrow_outlined,
-                              color: Colors.white),
-                          onPressed: () {},
+                          icon: Icon(
+                            isPlaying ? Icons.pause : Icons.play_arrow_outlined,
+                            color: Colors.white,
+                          ),
+                          onPressed: togglePlayPause,
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.skip_next, color: Colors.white),
-                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.skip_next,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Kpop2()));
+                        },
                       ),
                     ],
                   ),
