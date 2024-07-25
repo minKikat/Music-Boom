@@ -1,18 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/myFavourite.dart';
+import 'package:music_app_boom/myFavourite1.dart';
+import 'package:music_app_boom/myFavourite4.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Myfavourite5 extends StatefulWidget {
+  const Myfavourite5({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Myfavourite5> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Myfavourite5> {
   double _sliderValue = 0.0;
+
+  bool isPlaying = false;
+  bool isFavorite = false;
+
+  void togglePlayPause() {
+    setState(() {
+      isPlaying = !isPlaying;
+    });
+  }
+
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +40,14 @@ class _MyAppState extends State<MyApp> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const MyFavourite()));
+                    },
+                  ),
                   const Text(
                     'Long',
                     style: TextStyle(
@@ -83,12 +105,17 @@ class _MyAppState extends State<MyApp> {
                           inactiveColor: Colors.white,
                         ),
                       ),
-                      const Positioned(
-                        top: 0,
+                      Positioned(
+                        top: -10,
                         right: 10,
-                        child: Icon(
-                          Icons.favorite_border,
-                          color: Colors.red,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.favorite_border,
+                            color: isFavorite
+                                ? Colors.red
+                                : Color.fromRGBO(57, 191, 212, 1),
+                          ),
+                          onPressed: toggleFavorite,
                         ),
                       ),
                     ],
@@ -126,8 +153,17 @@ class _MyAppState extends State<MyApp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.skip_previous, color: Colors.white),
-                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.skip_previous,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Myfavourite4()));
+                        },
                       ),
                       Container(
                         decoration: const BoxDecoration(
@@ -136,14 +172,25 @@ class _MyAppState extends State<MyApp> {
                           shape: BoxShape.circle,
                         ),
                         child: IconButton(
-                          icon: const Icon(Icons.play_arrow_outlined,
-                              color: Colors.white),
-                          onPressed: () {},
+                          icon: Icon(
+                            isPlaying ? Icons.pause : Icons.play_arrow_outlined,
+                            color: Colors.white,
+                          ),
+                          onPressed: togglePlayPause,
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.skip_next, color: Colors.white),
-                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.skip_next,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Myfavourite1()));
+                        },
                       ),
                     ],
                   ),
