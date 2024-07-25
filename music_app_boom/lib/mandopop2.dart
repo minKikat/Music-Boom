@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/mandopop.dart';
+import 'package:music_app_boom/mandopop1.dart';
+import 'package:music_app_boom/mandopop3.dart';
 
 class Mandopop2 extends StatefulWidget {
   const Mandopop2({super.key});
@@ -9,6 +12,21 @@ class Mandopop2 extends StatefulWidget {
 
 class _MyAppState extends State<Mandopop2> {
   double _sliderValue = 0.0;
+
+  bool isPlaying = false;
+  bool isFavorite = false;
+
+  void togglePlayPause() {
+    setState(() {
+      isPlaying = !isPlaying;
+    });
+  }
+
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +40,13 @@ class _MyAppState extends State<Mandopop2> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (BuildContext context) => const Mandopop()));
+                    },
+                  ),
                   const Text(
                     'Long',
                     style: TextStyle(
@@ -79,12 +104,17 @@ class _MyAppState extends State<Mandopop2> {
                           inactiveColor: Colors.white,
                         ),
                       ),
-                      const Positioned(
-                        top: 0,
+                      Positioned(
+                        top: -10,
                         right: 10,
-                        child: Icon(
-                          Icons.favorite_border,
-                          color: Color.fromRGBO(57, 191, 212, 1),
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.favorite_border,
+                            color: isFavorite
+                                ? Colors.red
+                                : Color.fromRGBO(57, 191, 212, 1),
+                          ),
+                          onPressed: toggleFavorite,
                         ),
                       ),
                     ],
@@ -122,8 +152,17 @@ class _MyAppState extends State<Mandopop2> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.skip_previous, color: Colors.white),
-                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.skip_previous,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Mandopop1()));
+                        },
                       ),
                       Container(
                         decoration: const BoxDecoration(
@@ -132,14 +171,25 @@ class _MyAppState extends State<Mandopop2> {
                           shape: BoxShape.circle,
                         ),
                         child: IconButton(
-                          icon: const Icon(Icons.play_arrow_outlined,
-                              color: Colors.white),
-                          onPressed: () {},
+                          icon: Icon(
+                            isPlaying ? Icons.pause : Icons.play_arrow_outlined,
+                            color: Colors.white,
+                          ),
+                          onPressed: togglePlayPause,
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.skip_next, color: Colors.white),
-                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.skip_next,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Mandopop3()));
+                        },
                       ),
                     ],
                   ),
