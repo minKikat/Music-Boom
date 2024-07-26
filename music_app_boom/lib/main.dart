@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
 //import 'package:music_app_boom/forgetpassword.dart';
-import 'package:music_app_boom/mandopop1.dart';
+import 'package:music_app_boom/mandopop5.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:music_app_boom/service/firebase_options.dart';
 import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/mandopop1',
       routes: {
-        '/mandopop1': (context) => const Mandopop1(),
+        '/mandopop1': (context) => const Mandopop5(),
       }, // Assuming LoginPage is defined in loginScreen.dart
     );
   }
