@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:music_app_boom/kpop.dart';
+import 'package:music_app_boom/mandopop1.dart';
+import 'package:music_app_boom/mandopop2.dart';
+import 'package:music_app_boom/mandopop3.dart';
+import 'package:music_app_boom/mandopop4.dart';
+import 'package:music_app_boom/mandopop5.dart';
+import 'package:music_app_boom/songlibraby.dart';
 //import 'package:flutter/widgets.dart';
 
 class Mandopop extends StatelessWidget {
@@ -10,6 +16,13 @@ class Mandopop extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const SongLibrary()));
+            },
+          ),
           title: const Center(
             child: Column(
               children: [
@@ -91,315 +104,349 @@ class Mandopop extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              width: 350,
-              height: 118,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(62, 102, 102, 102),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 15,
-                    left: 50,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        'picture/Gulf of Alaska.png',
-                        width: 120,
-                        height: 90,
-                        fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => const Mandopop1()));
+              },
+              child: Container(
+                width: 350,
+                height: 118,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(62, 102, 102, 102),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 15,
+                      left: 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          'picture/Gulf of Alaska.png',
+                          width: 120,
+                          height: 90,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 15,
-                    child: Text(
-                      "#1",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
-                    ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 185,
-                    child: Text(
-                      "Gulf of Alaska",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
-                    ),
-                  ),
-                  const Positioned(
-                    top: 70,
-                    left: 185,
-                    child: Text(
-                      "Firdhaus",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Color.fromRGBO(138, 154, 157, 1)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            Container(
-              width: 350,
-              height: 118,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(62, 102, 102, 102),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 15,
-                    left: 50,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        'picture/long.png',
-                        width: 120,
-                        height: 90,
-                        fit: BoxFit.cover,
+                    const Positioned(
+                      top: 25,
+                      left: 15,
+                      child: Text(
+                        "#1",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
                       ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 15,
-                    child: Text(
-                      "#2",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
+                    const Positioned(
+                      top: 25,
+                      left: 185,
+                      child: Text(
+                        "Gulf of Alaska",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 185,
-                    child: Text(
-                      "Long",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
+                    const Positioned(
+                      top: 70,
+                      left: 185,
+                      child: Text(
+                        "Firdhaus",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Color.fromRGBO(138, 154, 157, 1)),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 70,
-                    left: 185,
-                    child: Text(
-                      "Zhang Bi Chen",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Color.fromRGBO(138, 154, 157, 1)),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
 
             const SizedBox(height: 12),
-            Container(
-              width: 350,
-              height: 118,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(62, 102, 102, 102),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 15,
-                    left: 50,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        'picture/a friend like you.png',
-                        width: 120,
-                        height: 90,
-                        fit: BoxFit.cover,
+
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => const Mandopop2()));
+              },
+              child: Container(
+                width: 350,
+                height: 118,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(62, 102, 102, 102),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 15,
+                      left: 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          'picture/long.png',
+                          width: 120,
+                          height: 90,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 15,
-                    child: Text(
-                      "#3",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
+                    const Positioned(
+                      top: 25,
+                      left: 15,
+                      child: Text(
+                        "#2",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 185,
-                    child: Text(
-                      "A Friend Like You",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
+                    const Positioned(
+                      top: 25,
+                      left: 185,
+                      child: Text(
+                        "Long",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 70,
-                    left: 185,
-                    child: Text(
-                      "Lu Hu",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Color.fromRGBO(138, 154, 157, 1)),
+                    const Positioned(
+                      top: 70,
+                      left: 185,
+                      child: Text(
+                        "Zhang Bi Chen",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Color.fromRGBO(138, 154, 157, 1)),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
+
             const SizedBox(height: 12),
-            Container(
-              width: 350,
-              height: 118,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(62, 102, 102, 102),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 15,
-                    left: 50,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        'picture/best friend.png',
-                        width: 120,
-                        height: 90,
-                        fit: BoxFit.cover,
+
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => const Mandopop3()));
+              },
+              child: Container(
+                width: 350,
+                height: 118,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(62, 102, 102, 102),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 15,
+                      left: 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          'picture/a friend like you.png',
+                          width: 120,
+                          height: 90,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 15,
-                    child: Text(
-                      "#4",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
+                    const Positioned(
+                      top: 25,
+                      left: 15,
+                      child: Text(
+                        "#3",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 185,
-                    child: Text(
-                      "Best Friend",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
+                    const Positioned(
+                      top: 25,
+                      left: 185,
+                      child: Text(
+                        "A Friend Like You",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 70,
-                    left: 185,
-                    child: Text(
-                      "Eric Chou",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Color.fromRGBO(138, 154, 157, 1)),
+                    const Positioned(
+                      top: 70,
+                      left: 185,
+                      child: Text(
+                        "Lu Hu",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Color.fromRGBO(138, 154, 157, 1)),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
+
             const SizedBox(height: 12),
-            Container(
-              width: 350,
-              height: 118,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(62, 102, 102, 102),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 15,
-                    left: 50,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        'picture/I\'m too stupid.png',
-                        width: 120,
-                        height: 90,
-                        fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => const Mandopop4()));
+              },
+              child: Container(
+                width: 350,
+                height: 118,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(62, 102, 102, 102),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 15,
+                      left: 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          'picture/best friend.png',
+                          width: 120,
+                          height: 90,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 15,
-                    child: Text(
-                      "#5",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
+                    const Positioned(
+                      top: 25,
+                      left: 15,
+                      child: Text(
+                        "#4",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 25,
-                    left: 185,
-                    child: Text(
-                      "I'm too Stupid",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Colors.white),
+                    const Positioned(
+                      top: 25,
+                      left: 185,
+                      child: Text(
+                        "Best Friend",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 70,
-                    left: 185,
-                    child: Text(
-                      "Chuina Lisha",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Century Gothic",
-                          color: Color.fromRGBO(138, 154, 157, 1)),
+                    const Positioned(
+                      top: 70,
+                      left: 185,
+                      child: Text(
+                        "Eric Chou",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Color.fromRGBO(138, 154, 157, 1)),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 12),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => const Mandopop5()));
+              },
+              child: Container(
+                width: 350,
+                height: 118,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(62, 102, 102, 102),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 15,
+                      left: 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          'picture/I\'m too stupid.png',
+                          width: 120,
+                          height: 90,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const Positioned(
+                      top: 25,
+                      left: 15,
+                      child: Text(
+                        "#5",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
+                    ),
+                    const Positioned(
+                      top: 25,
+                      left: 185,
+                      child: Text(
+                        "I'm too Stupid",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Colors.white),
+                      ),
+                    ),
+                    const Positioned(
+                      top: 70,
+                      left: 185,
+                      child: Text(
+                        "Chuina Lisha",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Century Gothic",
+                            color: Color.fromRGBO(138, 154, 157, 1)),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

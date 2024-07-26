@@ -48,7 +48,7 @@ class _MyAppState extends State<Mandopop1> {
                     },
                   ),
                   const Text(
-                    'Gull of Alaska',
+                    'Gulf of Alaska',
                     style: TextStyle(
                       fontFamily: "Century Gothic",
                       fontWeight: FontWeight.bold,
