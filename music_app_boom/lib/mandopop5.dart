@@ -62,7 +62,7 @@ class _MyAppState extends State<Mandopop5> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/I\'m too stupid.png',
+                        'picture/mandopop/I\'m too stupid.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,

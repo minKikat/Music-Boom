@@ -62,7 +62,7 @@ class _MyAppState extends State<Kpop4> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/smart.png',
+                        'picture/kpop/smart.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,

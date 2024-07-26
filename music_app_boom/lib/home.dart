@@ -8,8 +8,8 @@ const Home({ super.key });
     return Scaffold(
       backgroundColor: Colors.black12, //set background
       body: Center(
-        child: Image.asset(
-          'photo/logo.png',
+        child: Image.network(
+          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/logo.png?alt=media&token=70010884-e651-4380-8f59-7dabd98c8212',
           width: 200,
           height: 200,
           fit: BoxFit.cover,

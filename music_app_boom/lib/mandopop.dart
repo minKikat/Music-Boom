@@ -123,8 +123,8 @@ class Mandopop extends StatelessWidget {
                       left: 50,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'picture/Gulf of Alaska.png',
+                        child: Image.network(
+                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2FGulf%20of%20Alaska.png?alt=media&token=a5960dad-544a-4e0f-aaf5-c00289496f84',
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
@@ -193,8 +193,8 @@ class Mandopop extends StatelessWidget {
                       left: 50,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'picture/long.png',
+                        child: Image.network(
+                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Flong.png?alt=media&token=c44f57a2-e927-468c-96ed-604b6d8f771c',
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
@@ -263,8 +263,8 @@ class Mandopop extends StatelessWidget {
                       left: 50,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'picture/a friend like you.png',
+                        child: Image.network(
+                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fa%20friend%20like%20you.png?alt=media&token=9ecebf3a-6718-4489-a9e4-4a610b9bc33f',
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
@@ -332,8 +332,8 @@ class Mandopop extends StatelessWidget {
                       left: 50,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'picture/best friend.png',
+                        child: Image.network(
+                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fbest%20friend.png?alt=media&token=1bd82dd2-6854-4c84-97f5-b4b2e094c836',
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
@@ -401,8 +401,8 @@ class Mandopop extends StatelessWidget {
                       left: 50,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'picture/I\'m too stupid.png',
+                        child: Image.network(
+                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2FI\'m%20too%20stupid.png?alt=media&token=dfd2b725-64b1-49cb-9243-fff67134ed82',
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,

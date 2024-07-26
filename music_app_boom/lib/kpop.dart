@@ -122,8 +122,8 @@ class Kpop extends StatelessWidget {
                         left: 50,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'picture/boombayah.png',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Fboombayah.png?alt=media&token=0b168592-d682-4a34-97a1-7dac42040aa9',
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,
@@ -192,8 +192,8 @@ class Kpop extends StatelessWidget {
                         left: 50,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'picture/easy.png',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Feasy.png?alt=media&token=bfcf24c3-8139-4a23-8184-d20c4d28bad8',
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,
@@ -262,8 +262,8 @@ class Kpop extends StatelessWidget {
                         left: 50,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'picture/bubble gum.png',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Fbubble%20gum.png?alt=media&token=3b614659-762d-46c7-8865-71ca7a3cbe35',
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,
@@ -332,8 +332,8 @@ class Kpop extends StatelessWidget {
                         left: 50,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'picture/smart.png',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Fsmart.png?alt=media&token=64fda355-32b8-486e-9a6c-d5d3495e48e0',
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,
@@ -402,8 +402,8 @@ class Kpop extends StatelessWidget {
                         left: 50,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'picture/magnetic.png',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Fmagnetic.png?alt=media&token=2e587065-0e54-4641-8a55-11a3c4214cc7',
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,

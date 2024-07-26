@@ -62,7 +62,7 @@ class _Kpop1State extends State<Kpop1> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
-                        'picture/boombayah.png',
+                        'picture/kpop/boombayah.png',
                         width: 380,
                         height: 320,
                         fit: BoxFit.cover,

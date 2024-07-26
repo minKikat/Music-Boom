@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:music_app_boom/mandopop.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:just_audio/just_audio.dart';
+//import 'package:music_app_boom/forgetpassword.dart';
+import 'package:music_app_boom/mandopop1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:music_app_boom/service/firebase_options.dart';
+import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
@@ -9,7 +13,14 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  final audioPlayer = AudioPlayer();
+  runApp(
+    BlocProvider(
+      create: (context) =>
+          SongPlayerCubit(audioPlayer), // Provide the cubit here
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,61 +29,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Music App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:
-          const Mandopop(), // Assuming LoginPage is defined in loginScreen.dart
+      initialRoute: '/mandopop1',
+      routes: {
+        '/mandopop1': (context) => const Mandopop1(),
+      }, // Assuming LoginPage is defined in loginScreen.dart
     );
   }
 }
-/*
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}*/
