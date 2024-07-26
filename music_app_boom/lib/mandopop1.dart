@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:music_app_boom/mandopop.dart';
 import 'package:music_app_boom/mandopop2.dart';
 import 'package:music_app_boom/mandopop5.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:music_app_boom/my_favourite.dart';
 import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
-//import 'package:music_app_boom/song/bloc/song_player_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app_boom/song/bloc/favourite_provider.dart';
+import 'package:provider/provider.dart';
 
 class Mandopop1 extends StatefulWidget {
   const Mandopop1({super.key});
@@ -17,6 +19,7 @@ class Mandopop1 extends StatefulWidget {
 class Mandopop1State extends State<Mandopop1> {
   bool isPlaying = false;
   late AudioPlayer audioPlayer;
+  bool isFavourite = false;
 
   @override
   void initState() {
@@ -32,6 +35,27 @@ class Mandopop1State extends State<Mandopop1> {
       isPlaying = !isPlaying;
       isPlaying ? cubit.playSong() : cubit.pauseSong();
     });
+  }
+
+  void toggleFavorite() {
+    final favoriteProvider =
+        Provider.of<FavouriteProvider>(context, listen: false);
+    setState(() {
+      isFavourite = !isFavourite;
+      if (isFavourite) {
+        favoriteProvider.addFavourite("Gulf of Alaska");
+      } else {
+        favoriteProvider.removeFavourite("Gulf of Alaska");
+      }
+    });
+  }
+
+  void navigateToFavorites() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const MyFavourite(),
+      ),
+    );
   }
 
   String formatDuration(Duration duration) {
@@ -78,12 +102,33 @@ class Mandopop1State extends State<Mandopop1> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Mandopop()));
-                  },
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Mandopop()));
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        isFavourite ? Icons.favorite : Icons.favorite_border,
+                        color: Colors.red,
+                      ),
+                      onPressed:
+                          toggleFavorite, // Added icon button for favorite
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.favorite_outline,
+                        color: Colors.white,
+                      ),
+                      onPressed: navigateToFavorites,
+                    ),
+                  ],
                 ),
                 const Text(
                   'Gulf of Alaska',
@@ -264,37 +309,4 @@ class Mandopop1State extends State<Mandopop1> {
       ),
     );
   }
-
-  /*String formatDuration(Duration duration) {
-    final minutes = duration.inMinutes.remainder(60);
-    final seconds = duration.inSeconds.remainder(60);
-    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
-  }
-
-  Widget _songPlayer(BuildContext context) {
-    return BlocBuilder<SongPlayerCubit, SongPlayerState>(
-        builder: (context, state) {
-      if (state is SongPlayerLoading) {
-        return const CircularProgressIndicator();
-      }
-      if (state is SongPlayerLoaded) {
-        return Column(
-          children: [
-            Slider(
-              value: state.songPosition.inSeconds.toDouble(),
-              min: 0.0,
-              max: state.songDuration.inSeconds.toDouble(),
-              onChanged: (value) {
-                context
-                    .read<SongPlayerCubit>()
-                    .audioPlayer
-                    .seek(Duration(seconds: value.toInt()));
-              },
-            ),
-          ],
-        );
-      }
-      return Container();
-    });
-  }*/
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
-//import 'package:music_app_boom/forgetpassword.dart';
-import 'package:music_app_boom/mandopop5.dart';
+import 'package:music_app_boom/mandopop1.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:music_app_boom/my_favourite.dart';
 import 'package:music_app_boom/service/firebase_options.dart';
 import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
+import 'package:music_app_boom/song/bloc/favourite_provider.dart';
+import 'package:provider/provider.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
@@ -15,9 +17,13 @@ void main() async {
   );
   final audioPlayer = AudioPlayer();
   runApp(
-    BlocProvider(
-      create: (context) =>
-          SongPlayerCubit(audioPlayer), // Provide the cubit here
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => FavouriteProvider()),
+        BlocProvider(
+          create: (context) => SongPlayerCubit(audioPlayer),
+        ),
+      ],
       child: const MyApp(),
     ),
   );
@@ -36,7 +42,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/mandopop1',
       routes: {
-        '/mandopop1': (context) => const Mandopop5(),
+        '/mandopop1': (context) => const Mandopop1(),
+        '/myFavourite': (context) => const MyFavourite(),
       }, // Assuming LoginPage is defined in loginScreen.dart
     );
   }

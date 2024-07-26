@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_app_boom/myFavourite.dart';
+import 'package:music_app_boom/my_favourite.dart';
 import 'package:music_app_boom/myFavourite1.dart';
 import 'package:music_app_boom/myFavourite3.dart';
 

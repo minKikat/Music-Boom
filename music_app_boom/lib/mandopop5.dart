@@ -16,6 +16,7 @@ class Mandopop5 extends StatefulWidget {
 class Mandopop5State extends State<Mandopop5> {
   bool isPlaying = false;
   late AudioPlayer audioPlayer;
+  bool isFavourite = false;
 
   @override
   void initState() {
@@ -30,6 +31,12 @@ class Mandopop5State extends State<Mandopop5> {
     setState(() {
       isPlaying = !isPlaying;
       isPlaying ? cubit.playSong() : cubit.pauseSong();
+    });
+  }
+
+  void toggleFavorite() {
+    setState(() {
+      isFavourite = !isFavourite;
     });
   }
 
@@ -77,12 +84,25 @@ class Mandopop5State extends State<Mandopop5> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
                 IconButton(
                   icon: const Icon(Icons.arrow_back, color: Colors.white),
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (BuildContext context) => const Mandopop()));
                   },
+                ),
+                IconButton(
+                      icon: Icon(
+                        isFavourite ? Icons.favorite : Icons.favorite_border,
+                        color: Colors.red,
+                      ),
+                      onPressed:
+                          toggleFavorite, // Added icon button for favorite
+                    ),
+                  ],
                 ),
                 const Text(
                   'I’m too Stupid',
