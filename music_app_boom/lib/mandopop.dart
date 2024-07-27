@@ -5,7 +5,7 @@ import 'package:music_app_boom/mandopop2.dart';
 import 'package:music_app_boom/mandopop3.dart';
 import 'package:music_app_boom/mandopop4.dart';
 import 'package:music_app_boom/mandopop5.dart';
-import 'package:music_app_boom/songlibraby.dart';
+import 'package:music_app_boom/home_page.dart';
 //import 'package:flutter/widgets.dart';
 
 class Mandopop extends StatelessWidget {
@@ -20,7 +20,7 @@ class Mandopop extends StatelessWidget {
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (BuildContext context) => const SongLibrary()));
+                  builder: (BuildContext context) => const HomePage()));
             },
           ),
           title: const Center(

@@ -8,6 +8,7 @@ import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app_boom/song/bloc/favourite_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:logging/logging.dart';
 
 class Mandopop1 extends StatefulWidget {
   const Mandopop1({super.key});
@@ -20,6 +21,7 @@ class Mandopop1State extends State<Mandopop1> {
   bool isPlaying = false;
   late AudioPlayer audioPlayer;
   bool isFavourite = false;
+  final Logger _logger = Logger('Mandopop1State');
 
   @override
   void initState() {
@@ -43,8 +45,10 @@ class Mandopop1State extends State<Mandopop1> {
     setState(() {
       isFavourite = !isFavourite;
       if (isFavourite) {
+        _logger.info('Adding to favorites: Gulf of Alaska');
         favoriteProvider.addFavourite("Gulf of Alaska");
       } else {
+        _logger.info('Removing from favorites: Gulf of Alaska');
         favoriteProvider.removeFavourite("Gulf of Alaska");
       }
     });
@@ -120,13 +124,6 @@ class Mandopop1State extends State<Mandopop1> {
                       ),
                       onPressed:
                           toggleFavorite, // Added icon button for favorite
-                    ),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.favorite_outline,
-                        color: Colors.white,
-                      ),
-                      onPressed: navigateToFavorites,
                     ),
                   ],
                 ),

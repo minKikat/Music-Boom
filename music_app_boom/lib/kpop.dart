@@ -5,7 +5,7 @@ import 'package:music_app_boom/kpop3.dart';
 import 'package:music_app_boom/kpop4.dart';
 import 'package:music_app_boom/kpop5.dart';
 import 'package:music_app_boom/mandopop.dart';
-import 'package:music_app_boom/songlibraby.dart';
+import 'package:music_app_boom/home_page.dart';
 //import 'package:flutter/widgets.dart';
 
 class Kpop extends StatelessWidget {
@@ -20,7 +20,7 @@ class Kpop extends StatelessWidget {
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (BuildContext context) => const SongLibrary()));
+                  builder: (BuildContext context) => const HomePage()));
             },
           ),
           title: const Center(
