@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/favourite_service/favourite_provider.dart';
+//import 'package:music_app_boom/favourite_service/favourite_icon.dart';
 import 'package:music_app_boom/mandopop.dart';
 import 'package:music_app_boom/mandopop2.dart';
 import 'package:music_app_boom/mandopop5.dart';
@@ -6,7 +8,6 @@ import 'package:just_audio/just_audio.dart';
 import 'package:music_app_boom/my_favourite.dart';
 import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_app_boom/song/bloc/favourite_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
 
@@ -22,6 +23,8 @@ class Mandopop1State extends State<Mandopop1> {
   late AudioPlayer audioPlayer;
   bool isFavourite = false;
   final Logger _logger = Logger('Mandopop1State');
+  final String songId =
+      'Gulf_of_Alaska'; // Use a unique identifier for the song
 
   @override
   void initState() {
@@ -117,13 +120,13 @@ class Mandopop1State extends State<Mandopop1> {
                                 const Mandopop()));
                       },
                     ),
+                    // favourite icon
                     IconButton(
                       icon: Icon(
                         isFavourite ? Icons.favorite : Icons.favorite_border,
-                        color: Colors.red,
+                        color: isFavourite ? Colors.red : Colors.white,
                       ),
-                      onPressed:
-                          toggleFavorite, // Added icon button for favorite
+                      onPressed: toggleFavorite,
                     ),
                   ],
                 ),
@@ -290,12 +293,32 @@ class Mandopop1State extends State<Mandopop1> {
                           '你千万不要偷偷告诉她\n'
                           '在无数夜深人静的夜晚\n'
                           '我依旧在想她',
-                          style: TextStyle(
-                              fontFamily: "Century Gothic",
-                              color: Colors.white,
-                              fontSize: 16),
                         ),
                       ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Align(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                    onPressed: navigateToFavorites,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromRGBO(57, 191, 212, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 15),
+                    ),
+                    child: const Text(
+                      'View Favorites',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontFamily: "Century Gothic",
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -305,5 +328,11 @@ class Mandopop1State extends State<Mandopop1> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
   }
 }

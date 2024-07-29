@@ -20,20 +20,11 @@ class _LoginState extends State<Login> {
   final AuthService _authService = AuthService();
 
   Future<void> _login() async {
-    try {
       await _authService.signInWithEmailPassword(
         context,
         _emailController.text,
         _passwordController.text,
       );
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (BuildContext context) => const HomePage()));
-    } catch (e) {
-      // Handle error
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(e.toString()),
-      ));
-    }
   }
 
   @override

@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout, color: Colors.white),
+            icon: const Icon(Icons.logout_outlined, color: Colors.white),
             onPressed: () async {
               AuthService().signOutUser();
               Navigator.pushReplacement(
