@@ -20,11 +20,11 @@ class _LoginState extends State<Login> {
   final AuthService _authService = AuthService();
 
   Future<void> _login() async {
-      await _authService.signInWithEmailPassword(
-        context,
-        _emailController.text,
-        _passwordController.text,
-      );
+    await _authService.signInWithEmailPassword(
+      context,
+      _emailController.text,
+      _passwordController.text,
+    );
   }
 
   @override
@@ -115,7 +115,7 @@ class _LoginState extends State<Login> {
                 style: const TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 5),
-              Row(
+              /*Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
@@ -131,8 +131,8 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ],
-              ),
-              const SizedBox(height: 20),
+              ),*/
+              const SizedBox(height: 50),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
@@ -148,7 +148,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 25),
               RichText(
                 text: TextSpan(
                   text: "Don't have an account? ",

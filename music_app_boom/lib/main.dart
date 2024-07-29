@@ -29,7 +29,7 @@ void main() async {
           child: const MyApp(),
         ),
         BlocProvider(
-          create: (context) => SongPlayerCubit(audioPlayer),
+          create: (context) => SongPlayerCubit(AudioPlayer()),
         ),
       ],
       child: const MyApp(),
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: '/login',
+      initialRoute: '/homepage',
       routes: {
         '/login': (context) => const Login(),
         '/homepage': (context) => const HomePage(),

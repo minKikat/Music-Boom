@@ -5,6 +5,7 @@ import 'package:music_app_boom/kpop5.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app_boom/song/bloc/song_player_state.dart';
 
 class Kpop4 extends StatefulWidget {
   const Kpop4({super.key});

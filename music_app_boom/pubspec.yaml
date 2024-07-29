@@ -19,7 +19,7 @@ dependencies:
 
   # Cloud Storage
   firebase_storage: ^12.1.1
-  
+
   # audio
   audioplayers: ^6.0.0
   audio_video_progress_bar: ^2.0.3
@@ -33,7 +33,7 @@ dependencies:
   get: ^4.6.6
   shared_preferences: ^2.2.3
   fluttertoast: ^8.2.6
-  
+
   flutter:
     sdk: flutter
   freezed: ^2.4.4
@@ -42,11 +42,7 @@ dependencies:
   json_annotation: ^4.9.0
   json_serializable: ^6.8.0
   provider: ^6.1.2
-  
-  
 
-  
-  
 dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
@@ -64,6 +60,8 @@ flutter:
     - picture/kpop/bubble gum.png
     - picture/kpop/smart.png
     - picture/kpop/magnetic.png
+
+    - assets/audio/mandopop/Gulf of alaska.mp3
 
     # font:
 

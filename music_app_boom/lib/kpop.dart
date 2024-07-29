@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/Malay.dart';
 import 'package:music_app_boom/kpop1.dart';
 import 'package:music_app_boom/kpop2.dart';
 import 'package:music_app_boom/kpop3.dart';
@@ -74,7 +75,7 @@ class Kpop extends StatelessWidget {
                           builder: (BuildContext context) => const Mandopop()));
                     },
                   ),
-                  const SizedBox(width: 80),
+                  const SizedBox(width: 40),
                   Stack(
                     alignment: Alignment.center,
                     children: [
@@ -98,6 +99,24 @@ class Kpop extends StatelessWidget {
                       ),
                     ],
                   ),
+
+                const SizedBox(width: 40), // Space between 'a' and 'b'
+
+                GestureDetector(
+                  child: const Text(
+                    "Malay",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Century Gothic",
+                      color: Colors.white,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (BuildContext context) => const Malay()));
+                  },
+                ),
                 ],
               ),
               const SizedBox(
@@ -134,7 +153,7 @@ class Kpop extends StatelessWidget {
                         top: 25,
                         left: 15,
                         child: Text(
-                          "#1",
+                          "1",
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -204,7 +223,7 @@ class Kpop extends StatelessWidget {
                         top: 25,
                         left: 15,
                         child: Text(
-                          "#2",
+                          "2",
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -274,7 +293,7 @@ class Kpop extends StatelessWidget {
                         top: 25,
                         left: 15,
                         child: Text(
-                          "#3",
+                          "3",
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -344,7 +363,7 @@ class Kpop extends StatelessWidget {
                         top: 25,
                         left: 15,
                         child: Text(
-                          "#4",
+                          "4",
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -414,7 +433,7 @@ class Kpop extends StatelessWidget {
                         top: 25,
                         left: 15,
                         child: Text(
-                          "#5",
+                          "5",
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

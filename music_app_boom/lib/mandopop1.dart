@@ -8,6 +8,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:music_app_boom/my_favourite.dart';
 import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app_boom/song/bloc/song_player_state.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
 
@@ -29,9 +30,15 @@ class Mandopop1State extends State<Mandopop1> {
   @override
   void initState() {
     super.initState();
-    audioPlayer = AudioPlayer();
-    context.read<SongPlayerCubit>().loadSong(
-        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopopSong%2FGulf%20of%20alaska.mp3?alt=media&token=1f674511-8390-493a-9404-2500668cf373');
+    context.read<SongPlayerCubit>().loadLocalSong('assets/audio/mandopop/Gulf of alaska.mp3');
+  }
+
+  Future<void> _loadLocalAsset() async {
+    try {
+      await audioPlayer.setAsset('assets/audio/Gulf of alaska.mp3');
+    } catch (e) {
+      print('Error loading asset: $e');
+    }
   }
 
   void togglePlayPause() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/Malay.dart';
 import 'package:music_app_boom/kpop.dart';
 import 'package:music_app_boom/mandopop1.dart';
 import 'package:music_app_boom/mandopop2.dart';
@@ -81,7 +82,7 @@ class Mandopop extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(width: 80), // Space between 'a' and 'b'
+                const SizedBox(width: 40), // Space between 'a' and 'b'
 
                 GestureDetector(
                   child: const Text(
@@ -97,7 +98,25 @@ class Mandopop extends StatelessWidget {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (BuildContext context) => const Kpop()));
                   },
-                )
+                ),
+                const SizedBox(width: 40), // Space between text options
+
+                GestureDetector(
+                  child: const Text(
+                    "Malay",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Century Gothic",
+                      color: Colors.white,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const Malay())); // Assuming you have a Malay page
+                  },
+                ),
               ],
             ),
 
@@ -135,7 +154,7 @@ class Mandopop extends StatelessWidget {
                       top: 25,
                       left: 15,
                       child: Text(
-                        "#1",
+                        "1",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -205,7 +224,7 @@ class Mandopop extends StatelessWidget {
                       top: 25,
                       left: 15,
                       child: Text(
-                        "#2",
+                        "2",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -275,7 +294,7 @@ class Mandopop extends StatelessWidget {
                       top: 25,
                       left: 15,
                       child: Text(
-                        "#3",
+                        "3",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -344,7 +363,7 @@ class Mandopop extends StatelessWidget {
                       top: 25,
                       left: 15,
                       child: Text(
-                        "#4",
+                        "4",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -413,7 +432,7 @@ class Mandopop extends StatelessWidget {
                       top: 25,
                       left: 15,
                       child: Text(
-                        "#5",
+                        "5",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
