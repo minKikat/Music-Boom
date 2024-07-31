@@ -8,7 +8,7 @@ import 'package:music_app_boom/mandopop1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:music_app_boom/my_favourite.dart';
 import 'package:music_app_boom/service/firebase_options.dart';
-import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
+import 'package:music_app_boom/song_player/bloc/song_player_cubit.dart';
 import 'package:music_app_boom/home_page.dart';
 import 'package:provider/provider.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
