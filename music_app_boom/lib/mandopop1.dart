@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:music_app_boom/favourite_service/favourite_provider.dart';
-//import 'package:music_app_boom/favourite_service/favourite_icon.dart';
 import 'package:music_app_boom/mandopop.dart';
 import 'package:music_app_boom/mandopop2.dart';
 import 'package:music_app_boom/mandopop5.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:music_app_boom/my_favourite.dart';
-import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_app_boom/song/bloc/song_player_state.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
+import 'package:music_app_boom/song/bloc/song_player_state.dart';
+import 'package:music_app_boom/favourite_service/favourite_provider.dart';
+import 'package:music_app_boom/my_favourite.dart';
+import 'package:music_app_boom/service/firestore.dart';
+
+
 
 class Mandopop1 extends StatefulWidget {
-  const Mandopop1({super.key});
+  Mandopop1({super.key});
+
+  final FirestoreService firestoreService = FirestoreService();
 
   @override
   Mandopop1State createState() => Mandopop1State();
@@ -24,18 +28,32 @@ class Mandopop1State extends State<Mandopop1> {
   late AudioPlayer audioPlayer;
   bool isFavourite = false;
   final Logger _logger = Logger('Mandopop1State');
-  final String songId =
-      'Gulf_of_Alaska'; // Use a unique identifier for the song
 
+  final String songName = 'Gulf of Alaska';
+  final String artistName = 'Firdaus';
+  final String imageUrl =
+      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2FGulf%20of%20Alaska.png?alt=media&token=a5960dad-544a-4e0f-aaf5-c00289496f84';
   @override
   void initState() {
     super.initState();
-    context.read<SongPlayerCubit>().loadLocalSong('assets/audio/mandopop/Gulf of alaska.mp3');
+    audioPlayer = AudioPlayer();
+    context
+        .read<SongPlayerCubit>()
+        .loadLocalSong('assets/audio/mandopop/Gulf of alaska.mp3');
+    _checkIfFavourite(); // Check if the song is a favourite
   }
 
+  Future<void> _checkIfFavourite() async {
+    final isFav = await widget.firestoreService.isFavorite(songName);
+    setState(() {
+      isFavourite = isFav;
+    });
+  }
+
+  // ignore: unused_element
   Future<void> _loadLocalAsset() async {
     try {
-      await audioPlayer.setAsset('assets/audio/Gulf of alaska.mp3');
+      await audioPlayer.setAsset('assets/audio/mandopop/Gulf of alaska.mp3');
     } catch (e) {
       print('Error loading asset: $e');
     }
@@ -55,11 +73,13 @@ class Mandopop1State extends State<Mandopop1> {
     setState(() {
       isFavourite = !isFavourite;
       if (isFavourite) {
-        _logger.info('Adding to favorites: Gulf of Alaska');
-        favoriteProvider.addFavourite("Gulf of Alaska");
+        _logger.info('Adding to favorites: $songName');
+        favoriteProvider.addFavourite(songName);
+        widget.firestoreService
+            .addSong(songName, artistName, imageUrl); // Add song to Firestore
       } else {
-        _logger.info('Removing from favorites: Gulf of Alaska');
-        favoriteProvider.removeFavourite("Gulf of Alaska");
+        _logger.info('Removing from favorites: $songName');
+        favoriteProvider.removeFavourite(songName);
       }
     });
   }
@@ -129,12 +149,11 @@ class Mandopop1State extends State<Mandopop1> {
                     ),
                     // favourite icon
                     IconButton(
-                      icon: Icon(
-                        isFavourite ? Icons.favorite : Icons.favorite_border,
-                        color: isFavourite ? Colors.red : Colors.white,
-                      ),
-                      onPressed: toggleFavorite,
-                    ),
+                        icon: Icon(
+                          isFavourite ? Icons.favorite : Icons.favorite_border,
+                          color: isFavourite ? Colors.red : Colors.white,
+                        ),
+                        onPressed: toggleFavorite),
                   ],
                 ),
                 const Text(
@@ -219,7 +238,7 @@ class Mandopop1State extends State<Mandopop1> {
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                const Mandopop5()));
+                                Mandopop5()));
                       },
                     ),
                     Container(
@@ -245,89 +264,10 @@ class Mandopop1State extends State<Mandopop1> {
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                const Mandopop2()));
+                                Mandopop2()));
                       },
                     ),
                   ],
-                ),
-                const SizedBox(height: 30),
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    color: const Color.fromRGBO(57, 191, 212, 1),
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '上天啊\n'
-                          '难道你看不出我很爱她\n'
-                          '怎么明明相爱的两个人\n'
-                          '你要拆散他们啊\n\n'
-                          '上天啊\n'
-                          '你千万不要偷偷告诉她\n'
-                          '在无数夜深人静的夜晚\n'
-                          '有个人在想她\n\n'
-                          '以后的日子你要好好照顾她\n'
-                          '我不在她身旁你不能欺负她\n'
-                          '别再让人走进她心里\n'
-                          '最后却又离开她\n'
-                          '因为我不愿再看她流泪啦\n\n'
-                          '上天啊\n'
-                          '你是不是在偷偷看笑话\n'
-                          '明知我还没能力保护她\n'
-                          '让我们相遇啊\n\n'
-                          '上天啊\n'
-                          '她最近是否不再失眠啦\n'
-                          '愿世间温情化作一缕风\n'
-                          '代替我拥抱她\n\n'
-                          '以后的日子你要好好照顾她\n'
-                          '我不在他身旁你不能欺负她\n'
-                          '别再让人走进她心里\n'
-                          '最后却又离开她\n'
-                          '因为我不愿再看她流泪啦\n\n'
-                          '希望我的努力能够赶上她\n'
-                          '有天我能给她完整的一个家\n'
-                          '可若妳安排了别人给她\n'
-                          '我会祝福她\n'
-                          '上天你别管我先让她幸福吧\n\n'
-                          '上天啊\n'
-                          '这些晚上我对你说的话\n'
-                          '你别不小心漏嘴告诉她\n'
-                          '我怕会吵醒她\n\n'
-                          '上天啊\n'
-                          '你千万不要偷偷告诉她\n'
-                          '在无数夜深人静的夜晚\n'
-                          '我依旧在想她',
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.center,
-                  child: ElevatedButton(
-                    onPressed: navigateToFavorites,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(57, 191, 212, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 15),
-                    ),
-                    child: const Text(
-                      'View Favorites',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: "Century Gothic",
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),

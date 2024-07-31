@@ -45,7 +45,7 @@ class _MyAppState extends State<Myfavourite2> {
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              const MyFavourite()));
+                              MyFavourite()));
                     },
                   ),
                   const Text(

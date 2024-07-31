@@ -3,12 +3,19 @@ import 'package:music_app_boom/mandopop.dart';
 import 'package:music_app_boom/mandopop1.dart';
 import 'package:music_app_boom/mandopop4.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
+import 'package:provider/provider.dart';
+import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 import 'package:music_app_boom/song/bloc/song_player_state.dart';
+import 'package:music_app_boom/favourite_service/favourite_provider.dart';
+import 'package:music_app_boom/my_favourite.dart';
+import 'package:music_app_boom/service/firestore.dart';
 
 class Mandopop5 extends StatefulWidget {
-  const Mandopop5({super.key});
+  Mandopop5({super.key});
+
+  final FirestoreService firestoreService = FirestoreService();
 
   @override
   Mandopop5State createState() => Mandopop5State();
@@ -18,13 +25,37 @@ class Mandopop5State extends State<Mandopop5> {
   bool isPlaying = false;
   late AudioPlayer audioPlayer;
   bool isFavourite = false;
+  final Logger _logger = Logger('Mandopop5State');
+
+  final String songName = 'I\'m too Stupid';
+  final String artistName = 'Chuina Lisha';
+  final String imageUrl =
+      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2FI\'m%20too%20stupid.png?alt=media&token=dfd2b725-64b1-49cb-9243-fff67134ed82';
 
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
-    context.read<SongPlayerCubit>().loadSong(
-        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopopSong%2FI%20am%20too%20stupid.mp3?alt=media&token=5c35951e-d815-49c2-91a2-bd7dbd08199b');
+    context
+        .read<SongPlayerCubit>()
+        .loadSong('assets/audio/mandopop/I am too stupid.pm3');
+    _checkIfFavourite(); // Check if the song is a favourite
+  }
+
+  Future<void> _checkIfFavourite() async {
+    final isFav = await widget.firestoreService.isFavorite(songName);
+    setState(() {
+      isFavourite = isFav;
+    });
+  }
+
+  // ignore: unused_element
+  Future<void> _loadLocalAsset() async {
+    try {
+      await audioPlayer.setAsset('assets/audio/mandopop/I am too stupid.pm3');
+    } catch (e) {
+      print('Error loading asset: $e');
+    }
   }
 
   void togglePlayPause() {
@@ -36,9 +67,28 @@ class Mandopop5State extends State<Mandopop5> {
   }
 
   void toggleFavorite() {
+    final favoriteProvider =
+        Provider.of<FavouriteProvider>(context, listen: false);
     setState(() {
       isFavourite = !isFavourite;
+      if (isFavourite) {
+        _logger.info('Adding to favorites: $songName');
+        favoriteProvider.addFavourite(songName);
+        widget.firestoreService
+            .addSong(songName, artistName, imageUrl); // Add song to Firestore
+      } else {
+        _logger.info('Removing from favorites: $songName');
+        favoriteProvider.removeFavourite(songName);
+      }
     });
+  }
+
+  void navigateToFavorites() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const MyFavourite(),
+      ),
+    );
   }
 
   String formatDuration(Duration duration) {
@@ -87,22 +137,22 @@ class Mandopop5State extends State<Mandopop5> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Mandopop()));
-                  },
-                ),
-                IconButton(
-                      icon: Icon(
-                        isFavourite ? Icons.favorite : Icons.favorite_border,
-                        color: Colors.red,
-                      ),
-                      onPressed:
-                          toggleFavorite, // Added icon button for favorite
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Mandopop()));
+                      },
                     ),
+                    // favourite icon
+                    IconButton(
+                        icon: Icon(
+                          isFavourite ? Icons.favorite : Icons.favorite_border,
+                          color: isFavourite ? Colors.red : Colors.white,
+                        ),
+                        onPressed: toggleFavorite),
                   ],
                 ),
                 const Text(
@@ -186,8 +236,7 @@ class Mandopop5State extends State<Mandopop5> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Mandopop4()));
+                            builder: (BuildContext context) => Mandopop4()));
                       },
                     ),
                     Container(
@@ -212,69 +261,10 @@ class Mandopop5State extends State<Mandopop5> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Mandopop1()));
+                            builder: (BuildContext context) => Mandopop1()));
                       },
                     ),
                   ],
-                ),
-                const SizedBox(height: 30),
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    color: const Color.fromRGBO(57, 191, 212, 1),
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '别忘记了还会等你回家的人\n'
-                          '她要等不管夜多深\n'
-                          '有些事尽量别过分\n'
-                          '也能找到一个平衡\n'
-                          '仅存的天真留它一个完整\n\n'
-                          '不想懂爱怎变成这样的\n'
-                          '情愿是要我去为爱负责\n'
-                          '就算自己痛了不想你走了\n\n'
-                          '是不是我太笨\n'
-                          '给不了你最渴望的安稳\n'
-                          '才让你忐忑不安跳动着的心\n'
-                          '才想去越格\n\n'
-                          '是不是我太笨\n'
-                          '只要你说的我全都信任\n'
-                          '不能去拆穿的又何必追问\n\n'
-                          '寂寞的人总是都有它的可恨\n'
-                          '所以看开了也算了\n'
-                          '怎样才是爱一个人\n'
-                          '谁能解开这个疑问\n'
-                          '爱没对错的只有值不值得\n\n'
-                          '不想懂爱怎变成这样的\n'
-                          '情愿是要我去为爱负责\n'
-                          '就算自己痛了不想你走了\n\n'
-                          '是不是我太笨\n'
-                          '给不了你最渴望的安稳\n'
-                          '才让你忐忑不安跳动着的心\n'
-                          '才想去越格\n\n'
-                          '是不是我太笨\n'
-                          '只要你说的我全都信任\n'
-                          '不能去拆穿的又何必追问\n\n'
-                          '是不是我太笨\n'
-                          '给不了你最渴望的安稳\n'
-                          '才让你忐忑不安跳动着的心\n'
-                          '才想去越格\n\n'
-                          '是不是我太笨\n'
-                          '只要你说的我全都信任\n'
-                          '不能去拆穿的又何必追问\n'
-                          '谁叫我爱你呢什么都能忍',
-                          style: TextStyle(
-                              fontFamily: "Century Gothic",
-                              color: Colors.white,
-                              fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ],
             ),
@@ -282,5 +272,11 @@ class Mandopop5State extends State<Mandopop5> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
   }
 }

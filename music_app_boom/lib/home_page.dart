@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => const Mandopop1()));
+                    builder: (BuildContext context) =>  Mandopop1()));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(1),
@@ -161,7 +161,7 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const MyFavourite(),
+                        builder: (BuildContext context) => MyFavourite(),
                       ),
                     );
                   },

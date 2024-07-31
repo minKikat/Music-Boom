@@ -3,12 +3,19 @@ import 'package:music_app_boom/mandopop.dart';
 import 'package:music_app_boom/mandopop2.dart';
 import 'package:music_app_boom/mandopop4.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
+import 'package:provider/provider.dart';
+import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 import 'package:music_app_boom/song/bloc/song_player_state.dart';
+import 'package:music_app_boom/favourite_service/favourite_provider.dart';
+import 'package:music_app_boom/my_favourite.dart';
+import 'package:music_app_boom/service/firestore.dart';
 
 class Mandopop3 extends StatefulWidget {
-  const Mandopop3({super.key});
+  Mandopop3({super.key});
+
+  final FirestoreService firestoreService = FirestoreService();
 
   @override
   Mandopop3State createState() => Mandopop3State();
@@ -18,13 +25,37 @@ class Mandopop3State extends State<Mandopop3> {
   bool isPlaying = false;
   late AudioPlayer audioPlayer;
   bool isFavourite = false;
+  final Logger _logger = Logger('Mandopop3State');
+
+  final String songName = 'A Friend Like You';
+  final String artistName = 'Lu Hu';
+  final String imageUrl =
+      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fa%20friend%20like%20you.png?alt=media&token=9ecebf3a-6718-4489-a9e4-4a610b9bc33f';
 
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
-    context.read<SongPlayerCubit>().loadSong(
-        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopopSong%2FA%20friend%20like%20you.mp3?alt=media&token=6bc2d49c-5366-4e8f-bcc2-8009043d355a');
+    context
+        .read<SongPlayerCubit>()
+        .loadSong('assets/audio/mandopop/A friend like you.pm3');
+    _checkIfFavourite(); // Check if the song is a favourite
+  }
+
+  Future<void> _checkIfFavourite() async {
+    final isFav = await widget.firestoreService.isFavorite(songName);
+    setState(() {
+      isFavourite = isFav;
+    });
+  }
+
+  // ignore: unused_element
+  Future<void> _loadLocalAsset() async {
+    try {
+      await audioPlayer.setAsset('assets/audio/mandopop/A friend like you.mp3');
+    } catch (e) {
+      print('Error loading asset: $e');
+    }
   }
 
   void togglePlayPause() {
@@ -36,9 +67,28 @@ class Mandopop3State extends State<Mandopop3> {
   }
 
   void toggleFavorite() {
+    final favoriteProvider =
+        Provider.of<FavouriteProvider>(context, listen: false);
     setState(() {
       isFavourite = !isFavourite;
+      if (isFavourite) {
+        _logger.info('Adding to favorites: $songName');
+        favoriteProvider.addFavourite(songName);
+        widget.firestoreService
+            .addSong(songName, artistName, imageUrl); // Add song to Firestore
+      } else {
+        _logger.info('Removing from favorites: $songName');
+        favoriteProvider.removeFavourite(songName);
+      }
     });
+  }
+
+  void navigateToFavorites() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const MyFavourite(),
+      ),
+    );
   }
 
   String formatDuration(Duration duration) {
@@ -86,22 +136,22 @@ class Mandopop3State extends State<Mandopop3> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Mandopop()));
-                  },
-                ),
-                IconButton(
-                      icon: Icon(
-                        isFavourite ? Icons.favorite : Icons.favorite_border,
-                        color: Colors.red,
-                      ),
-                      onPressed:
-                          toggleFavorite, // Added icon button for favorite
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Mandopop()));
+                      },
                     ),
+                    // favourite icon
+                    IconButton(
+                        icon: Icon(
+                          isFavourite ? Icons.favorite : Icons.favorite_border,
+                          color: isFavourite ? Colors.red : Colors.white,
+                        ),
+                        onPressed: toggleFavorite),
                   ],
                 ),
                 const Text(
@@ -185,8 +235,7 @@ class Mandopop3State extends State<Mandopop3> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Mandopop2()));
+                            builder: (BuildContext context) => Mandopop2()));
                       },
                     ),
                     Container(
@@ -211,89 +260,10 @@ class Mandopop3State extends State<Mandopop3> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Mandopop4()));
+                            builder: (BuildContext context) => Mandopop4()));
                       },
                     ),
                   ],
-                ),
-                const SizedBox(height: 30),
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    color: const Color.fromRGBO(57, 191, 212, 1),
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '''
-开始斗嘴是我 作对是我
-最不爽你就是我
-没想到我们会成为好朋友
-现在爱你是我 挺你是我
-就算肉麻也是我
-多幸运有像你这样的朋友
-
-时光偷走遇见转角送来错过
-四季飞快像坐过山车
-那些沙雕的 深刻的
-专属我们的
-如果这辈子做朋友你都不嫌多
-下辈子够不够
-我还想要像你这样的朋友
-
-相信只有我才能懂你的黑色幽默
-我喜欢周杰伦你却说歌王是陶喆
-意见不合 互不干涉
-千千万万个孤立无援时刻
-还是你罩我
-
-隔壁爱你的圆脸女孩我偷偷爱着
-听说你爱的漂亮姐姐疯狂迷恋我
-你不必懂 恋爱功课
-就算全世界不要你的时候
-身后还有我
-
-开始斗嘴是我 作对是我
-最不爽你就是我
-没想到我们会成为好朋友
-现在爱你是我 挺你是我
-就算肉麻也是我
-多幸运有像你这样的朋友
-
-时光偷走遇见转角送来错过
-四季飞快像坐过山车
-那些沙雕的 深刻的
-专属我们的
-如果这辈子做朋友你都不嫌多
-下辈子够不够
-我还想要像你这样的朋友
-
-开始斗嘴是我 作对是我
-最不爽你就是我
-没想到我们会成为好朋友
-现在爱你是我 挺你是我
-就算肉麻也是我
-多幸运有像你这样的朋友
-
-时光偷走遇见转角送来错过
-四季飞快像坐过山车
-那些沙雕的 深刻的
-专属我们的
-如果这辈子做朋友你都不嫌多
-下辈子够不够
-我还想要像你这样的朋友
-                    ''',
-                          style: TextStyle(
-                              fontFamily: "Century Gothic",
-                              color: Colors.white,
-                              fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ],
             ),
@@ -301,5 +271,11 @@ class Mandopop3State extends State<Mandopop3> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
   }
 }

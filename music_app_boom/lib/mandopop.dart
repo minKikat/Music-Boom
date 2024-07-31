@@ -126,7 +126,7 @@ class Mandopop extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => const Mandopop1()));
+                    builder: (BuildContext context) => Mandopop1()));
               },
               child: Container(
                 width: 350,
@@ -196,7 +196,7 @@ class Mandopop extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => const Mandopop2()));
+                    builder: (BuildContext context) => Mandopop2()));
               },
               child: Container(
                 width: 350,
@@ -266,7 +266,7 @@ class Mandopop extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => const Mandopop3()));
+                    builder: (BuildContext context) => Mandopop3()));
               },
               child: Container(
                 width: 350,
@@ -335,7 +335,7 @@ class Mandopop extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => const Mandopop4()));
+                    builder: (BuildContext context) => Mandopop4()));
               },
               child: Container(
                 width: 350,
@@ -404,7 +404,7 @@ class Mandopop extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => const Mandopop5()));
+                    builder: (BuildContext context) => Mandopop5()));
               },
               child: Container(
                 width: 350,

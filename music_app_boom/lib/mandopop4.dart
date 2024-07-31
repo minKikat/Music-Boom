@@ -3,28 +3,58 @@ import 'package:music_app_boom/mandopop.dart';
 import 'package:music_app_boom/mandopop3.dart';
 import 'package:music_app_boom/mandopop5.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
+import 'package:provider/provider.dart';
+import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 import 'package:music_app_boom/song/bloc/song_player_state.dart';
+import 'package:music_app_boom/favourite_service/favourite_provider.dart';
+import 'package:music_app_boom/my_favourite.dart';
+import 'package:music_app_boom/service/firestore.dart';
 
 class Mandopop4 extends StatefulWidget {
-  const Mandopop4({super.key});
+  Mandopop4({super.key});
+
+  final FirestoreService firestoreService = FirestoreService();
 
   @override
   Mandopop4State createState() => Mandopop4State();
 }
 
 class Mandopop4State extends State<Mandopop4> {
-  bool isPlaying = false;
+   bool isPlaying = false;
   late AudioPlayer audioPlayer;
   bool isFavourite = false;
+  final Logger _logger = Logger('Mandopop4State');
 
+  final String songName = 'Best Friend';
+  final String artistName = 'Eric Chou';
+  final String imageUrl =
+      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fbest%20friend.png?alt=media&token=1bd82dd2-6854-4c84-97f5-b4b2e094c836';
+  
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
     context.read<SongPlayerCubit>().loadSong(
-        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopopSong%2FBest%20Friend.mp3?alt=media&token=6579c636-73e3-47b3-ad1c-465e795b9f80');
+        'assets/audio/mandopop/Best Friend.mp3');
+        _checkIfFavourite(); // Check if the song is a favourite
+  }
+
+  Future<void> _checkIfFavourite() async {
+    final isFav = await widget.firestoreService.isFavorite(songName);
+    setState(() {
+      isFavourite = isFav;
+    });
+  }
+
+  // ignore: unused_element
+  Future<void> _loadLocalAsset() async {
+    try {
+      await audioPlayer.setAsset('assets/audio/mandopop/Best Friend.mp3');
+    } catch (e) {
+      print('Error loading asset: $e');
+    }
   }
 
   void togglePlayPause() {
@@ -36,9 +66,28 @@ class Mandopop4State extends State<Mandopop4> {
   }
 
   void toggleFavorite() {
+    final favoriteProvider =
+        Provider.of<FavouriteProvider>(context, listen: false);
     setState(() {
       isFavourite = !isFavourite;
+      if (isFavourite) {
+        _logger.info('Adding to favorites: $songName');
+        favoriteProvider.addFavourite(songName);
+        widget.firestoreService
+            .addSong(songName, artistName, imageUrl); // Add song to Firestore
+      } else {
+        _logger.info('Removing from favorites: $songName');
+        favoriteProvider.removeFavourite(songName);
+      }
     });
+  }
+
+  void navigateToFavorites() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const MyFavourite(),
+      ),
+    );
   }
 
   String formatDuration(Duration duration) {
@@ -95,14 +144,13 @@ class Mandopop4State extends State<Mandopop4> {
                         builder: (BuildContext context) => const Mandopop()));
                   },
                 ),
-                IconButton(
-                      icon: Icon(
-                        isFavourite ? Icons.favorite : Icons.favorite_border,
-                        color: Colors.red,
-                      ),
-                      onPressed:
-                          toggleFavorite, // Added icon button for favorite
-                    ),
+                // favourite icon
+                    IconButton(
+                        icon: Icon(
+                          isFavourite ? Icons.favorite : Icons.favorite_border,
+                          color: isFavourite ? Colors.red : Colors.white,
+                        ),
+                        onPressed: toggleFavorite),
                   ],
                 ),
                 const Text(
@@ -187,7 +235,7 @@ class Mandopop4State extends State<Mandopop4> {
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                const Mandopop3()));
+                                 Mandopop3()));
                       },
                     ),
                     Container(
@@ -213,79 +261,10 @@ class Mandopop4State extends State<Mandopop4> {
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                const Mandopop5()));
-                      },
+                                 Mandopop5()));
+                       },
                     ),
                   ],
-                ),
-                const SizedBox(height: 30),
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    color: const Color.fromRGBO(57, 191, 212, 1),
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '''
-想当星辰 却像路灯
-若爱一个人 切忌爱得太深
-酒后传的讯息 你别当真
-我总感情用事 忘了不可能
-
-也委屈你 长期容忍
-但我们之间 该用什么相称
-难道非要我爱其他的人
-你才心安理得 卸下了责任
-
-我们不讨论的关系
-很接近却不是爱情
-拥有无数交集 要丢弃太可惜
-我演的恨 真不诚恳
-你最清楚 我是怎样的人
-
-没人不羡慕的关系
-只是没结局的续集
-为什么太熟悉 反而变成距离
-触不到的恋人 化身挚友也像搪塞
-你明知道我不会等到 却放任我等
-
-你正全心 对待的人
-辗转找到我 劝我别再伤神
-其实我真不想一一询问
-从此默不出声 是我的责任
-
-我们不说破的关系
-很微妙却不是爱情
-容许这种维系 是我不够争气
-一再追问 何其愚笨
-我也清楚你是怎样的人
-
-荡气回肠 又能如何
-我最不应该 还害你受困
-进退不得
-我们不讨论的关系
-很接近却不是爱情
-拥有无数交集 要丢弃太可惜
-我演的恨 真不诚恳
-你最清楚 我是怎样的人
-
-没人不羡慕的关系
-只是没结局的续集
-为什么太熟悉 反而变成距离
-触不到的恋人 化身挚友也像搪塞
-你明知道我不会等到 却放任我等
-                    ''',
-                          style: TextStyle(
-                              fontFamily: "Century Gothic",
-                              color: Colors.white,
-                              fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ],
             ),
@@ -293,5 +272,11 @@ class Mandopop4State extends State<Mandopop4> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
   }
 }

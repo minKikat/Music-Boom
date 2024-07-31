@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:music_app_boom/mandopop.dart';
 import 'package:music_app_boom/mandopop1.dart';
 import 'package:music_app_boom/mandopop3.dart';
-import 'package:just_audio/just_audio.dart';
-import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
+import 'package:provider/provider.dart';
+import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app_boom/song/bloc/song_player_cubit.dart';
 import 'package:music_app_boom/song/bloc/song_player_state.dart';
+import 'package:music_app_boom/favourite_service/favourite_provider.dart';
+import 'package:music_app_boom/my_favourite.dart';
+import 'package:music_app_boom/service/firestore.dart';
 
 class Mandopop2 extends StatefulWidget {
-  const Mandopop2({super.key});
+  Mandopop2({super.key});
+
+  final FirestoreService firestoreService = FirestoreService();
 
   @override
   Mandopop2State createState() => Mandopop2State();
@@ -18,13 +25,35 @@ class Mandopop2State extends State<Mandopop2> {
   bool isPlaying = false;
   late AudioPlayer audioPlayer;
   bool isFavourite = false;
+  final Logger _logger = Logger('Mandopop2State');
+
+  final String songName = 'Long';
+  final String artistName = 'Zhang Bi Chen';
+  final String imageUrl =
+      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Flong.png?alt=media&token=c44f57a2-e927-468c-96ed-604b6d8f771c';
 
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
-    context.read<SongPlayerCubit>().loadSong(
-        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopopSong%2FLong.mp3?alt=media&token=8b582971-e885-44ca-b94e-33c54f72cb16');
+    context.read<SongPlayerCubit>().loadSong('assets/audio/mandopop/Long.mp3');
+    _checkIfFavourite(); // Check if the song is a favourite
+  }
+
+  Future<void> _checkIfFavourite() async {
+    final isFav = await widget.firestoreService.isFavorite(songName);
+    setState(() {
+      isFavourite = isFav;
+    });
+  }
+
+  // ignore: unused_element
+  Future<void> _loadLocalAsset() async {
+    try {
+      await audioPlayer.setAsset('assets/audio/Longa.mp3');
+    } catch (e) {
+      print('Error loading asset: $e');
+    }
   }
 
   void togglePlayPause() {
@@ -36,9 +65,28 @@ class Mandopop2State extends State<Mandopop2> {
   }
 
   void toggleFavorite() {
+    final favoriteProvider =
+        Provider.of<FavouriteProvider>(context, listen: false);
     setState(() {
       isFavourite = !isFavourite;
+      if (isFavourite) {
+        _logger.info('Adding to favorites: $songName');
+        favoriteProvider.addFavourite(songName);
+        widget.firestoreService
+            .addSong(songName, artistName, imageUrl); // Add song to Firestore
+      } else {
+        _logger.info('Removing from favorites: $songName');
+        favoriteProvider.removeFavourite(songName);
+      }
     });
+  }
+
+  void navigateToFavorites() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const MyFavourite(),
+      ),
+    );
   }
 
   String formatDuration(Duration duration) {
@@ -96,14 +144,13 @@ class Mandopop2State extends State<Mandopop2> {
                                 const Mandopop()));
                       },
                     ),
+                    // favourite icon
                     IconButton(
-                      icon: Icon(
-                        isFavourite ? Icons.favorite : Icons.favorite_border,
-                        color: Colors.red,
-                      ),
-                      onPressed:
-                          toggleFavorite, // Added icon button for favorite
-                    ),
+                        icon: Icon(
+                          isFavourite ? Icons.favorite : Icons.favorite_border,
+                          color: isFavourite ? Colors.red : Colors.white,
+                        ),
+                        onPressed: toggleFavorite),
                   ],
                 ),
                 const Text(
@@ -187,8 +234,7 @@ class Mandopop2State extends State<Mandopop2> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Mandopop1()));
+                            builder: (BuildContext context) => Mandopop1()));
                       },
                     ),
                     Container(
@@ -213,67 +259,10 @@ class Mandopop2State extends State<Mandopop2> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Mandopop3()));
+                            builder: (BuildContext context) => Mandopop3()));
                       },
                     ),
                   ],
-                ),
-                const SizedBox(height: 30),
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    color: const Color.fromRGBO(57, 191, 212, 1),
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '深海中 那点光 昏暗的诱惑\n'
-                          '她以为 抓得住 名为爱的泡沫\n'
-                          '人心 扑朔 晦涩 幽蓝如墨\n'
-                          '怎么 猜透 看透 故事的结果\n\n'
-                          '为何绚烂 叫人扑空\n'
-                          '为何爱我者予我牢笼\n'
-                          '为何等待 都徒劳无功\n'
-                          '为何囚人者也像困兽（为什么）\n'
-                          '越珍贵 越浪费\n'
-                          '致命的伤 诞生于亲密\n'
-                          '越追问 越无解\n'
-                          '哪有答案 不过是咒语\n'
-                          '都在笼中\n\n'
-                          '出口就 在身后 只需要回头\n'
-                          '为什么 人们却 亲手上一把锁\n'
-                          '不甘 不得 不休 囚人自囚\n'
-                          '为爱 为爱 为爱 都只是为我\n\n'
-                          '为何绚烂 叫人扑空\n'
-                          '为何爱我者予我牢笼\n'
-                          '为何等待 都徒劳无功\n'
-                          '为何囚人者也像困兽（为什么）\n'
-                          '越珍贵 越浪费\n'
-                          '致命的伤 诞生于亲密\n'
-                          '越追问 越无解\n'
-                          '答案写在笼中 只为困住你\n\n'
-                          '为何拥抱 那么疼痛\n'
-                          '为何爱我者把我葬送\n'
-                          '为何港湾 会变作迷宫\n'
-                          '为何镜中人失去面孔（为什么）\n'
-                          '越珍贵 越浪费\n'
-                          '致命的伤 诞生于亲密\n'
-                          '越追问 越无解\n'
-                          '哪有答案 不过是咒语\n'
-                          '爱不爱我\n'
-                          '谁邀你\n'
-                          '入笼',
-                          style: TextStyle(
-                              fontFamily: "Century Gothic",
-                              color: Colors.white,
-                              fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ],
             ),
@@ -281,5 +270,11 @@ class Mandopop2State extends State<Mandopop2> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
   }
 }

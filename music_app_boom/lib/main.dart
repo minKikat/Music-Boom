@@ -19,6 +19,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  // ignore: unused_local_variable
   final audioPlayer = AudioPlayer();
 
   runApp(
@@ -52,8 +53,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => const Login(),
         '/homepage': (context) => const HomePage(),
-        '/mandopop1': (context) => const Mandopop1(),
-        '/myFavourite': (context) => const MyFavourite(),
+        '/mandopop1': (context) =>  Mandopop1(),
+        '/myFavourite': (context) =>  MyFavourite(),
       }, // Assuming LoginPage is defined in loginScreen.dart
     );
   }
