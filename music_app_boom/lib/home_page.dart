@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:music_app_boom/Malay.dart';
-import 'package:music_app_boom/kpop.dart';
-import 'package:music_app_boom/mandopop.dart';
-import 'package:music_app_boom/mandopop1.dart';
+import 'package:music_app_boom/book_review/book_list.dart';
+import 'package:music_app_boom/kpop/kpop.dart';
+import 'package:music_app_boom/malay/malay.dart';
+import 'package:music_app_boom/mandopop/mandopop.dart';
+import 'package:music_app_boom/mandopop/mandopop1.dart';
 import 'package:music_app_boom/my_favourite.dart';
 import 'package:music_app_boom/screens/login.dart';
 import 'package:music_app_boom/service/auth_services.dart';
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(
-                'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/homePage%2Flogo.png?alt=media&token=f99d359e-f62e-40ce-8811-2dbf5f09053a',
+                'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/homePage%2Flogo.png?alt=media&token=c2a660d6-39cd-4c55-adf0-fa76a2c4da84',
                 width: 50,
                 height: 50,
                 fit: BoxFit.cover,
@@ -61,7 +62,7 @@ class HomePage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) =>  Mandopop1()));
+                    builder: (BuildContext context) => Mandopop1()));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(1),
@@ -161,7 +162,7 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (BuildContext context) => MyFavourite(),
+                        builder: (BuildContext context) => const MyFavourite(),
                       ),
                     );
                   },
@@ -179,7 +180,8 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const Mandopop(), // temporary lyrics
+                        builder: (BuildContext context) =>
+                            BookListPage(), // temporary lyrics
                       ),
                     );
                   },

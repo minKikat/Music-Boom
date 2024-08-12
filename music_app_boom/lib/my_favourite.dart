@@ -46,10 +46,10 @@ class MyFavourite extends StatelessWidget {
               itemCount: songsList.length,
               itemBuilder: (context, index) {
                 DocumentSnapshot document = songsList[index];
-                String docID  = document.id;
+                //String docID = document.id;
 
-                Map<String, dynamic> data =
-                    document.data() as Map<String, dynamic>;
+                /*Map<String, dynamic> data =
+                    document.data() as Map<String, dynamic>;*/
 
                 return GestureDetector(
                   onTap: () {
@@ -61,12 +61,12 @@ class MyFavourite extends StatelessWidget {
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(62, 102, 102, 102),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     child: Row(
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(30),
                           child: Image.network(
                             document['imageUrl'],
                             width: 90,
@@ -103,7 +103,7 @@ class MyFavourite extends StatelessWidget {
                         ),
                         IconButton(
                           icon: const Icon(Icons.remove_circle_outline,
-                              color: Color.fromRGBO(57, 191, 212, 1)),
+                              color: Color.fromRGBO(57, 191, 212, 1), size: 30,),
                           onPressed: () {
                             _removeFromFavorites(
                                 document.id); // Pass the document ID

@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+/*import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app_boom/screens/login.dart';
 //import 'package:music_app_boom/service/auth_services.dart';
@@ -228,4 +228,4 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       ),
     );
   }
-}
+}*/

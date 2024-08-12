@@ -35,4 +35,13 @@ class FirestoreService {
       'imageUrl': newImageUrl,
     });
   }
+
+  // DELETE
+  Future<void> removeSong(String songName) async {
+    final snapshot =
+        await songsCollection.where('songName', isEqualTo: songName).get();
+    for (var doc in snapshot.docs) {
+      await doc.reference.delete();
+    }
+  }
 }

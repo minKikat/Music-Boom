@@ -43,7 +43,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
                     image: NetworkImage(
-                        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/homePage%2Flogo.png?alt=media&token=f99d359e-f62e-40ce-8811-2dbf5f09053a'),
+                        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/homePage%2Flogo.png?alt=media&token=c2a660d6-39cd-4c55-adf0-fa76a2c4da84'),
                     fit: BoxFit.cover,
                   ),
                 ),
