@@ -4,6 +4,8 @@ import 'package:music_app_boom/screens/login.dart';
 import 'package:music_app_boom/service/auth_services.dart';
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }

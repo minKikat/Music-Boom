@@ -40,6 +40,9 @@ dependencies:
   flutter_pdfview: ^1.3.2
   dio: ^5.5.0+1
   pdfx: ^2.6.0
+  webview_flutter: ^4.8.0
+  webview_flutter_android: ^3.16.6
+  webview_flutter_wkwebview: ^3.14.0
 
   flutter:
     sdk: flutter
@@ -48,9 +51,9 @@ dependencies:
   json_annotation: ^4.9.0
   json_serializable: ^6.8.0
   provider: ^6.1.2
-  webview_flutter: ^4.0.0
 
   flutter_launcher_icons: "^0.13.1"
+  
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -69,13 +72,9 @@ flutter:
     - assets/audio/malay/.
     - assets/fonts/
 
-  fonts:
-    - family: Gothic
-      fonts:
-        - asset: aeests/fonts/GOTHIC.TTF
-        - asset: aeests/fonts/GOTHICB.TTF
-        - asset: aeests/fonts/GOTHICB0.TTF
-        - asset: aeests/fonts/GOTHICBI.TTF
-        - asset: aeests/fonts/GOTHICI.TTF
+  #fonts:
+  #- family: Gothic
+  #  fonts:
+  #    - asset: aeests/fonts/.
 
   uses-material-design: true

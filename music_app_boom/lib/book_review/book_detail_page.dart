@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 import 'package:music_app_boom/book_review/web_view_page.dart';
 
 class BookDetailsPage extends StatelessWidget {
@@ -7,7 +7,6 @@ class BookDetailsPage extends StatelessWidget {
   final String author;
   final String thumbnailUrl;
   final String previewLink;
-  final String pdfLink;
 
   const BookDetailsPage({
     super.key,
@@ -15,7 +14,6 @@ class BookDetailsPage extends StatelessWidget {
     required this.author,
     required this.thumbnailUrl,
     required this.previewLink,
-    required this.pdfLink,
   });
 
   @override
@@ -40,36 +38,22 @@ class BookDetailsPage extends StatelessWidget {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                _launchURL(previewLink);
-              },
-              child: const Text('Read Book Online'),
-            ),
-            const SizedBox(height: 16.0),
-            /*ElevatedButton(
-              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => WebViewPage(
-                      previewLink: previewLink,
+                      initialUrl:
+                          previewLink, // Pass the preview link to WebViewPage
                     ),
                   ),
                 );
               },
-              child: const Text('Web View'),
-            ),*/
+              child: const Text('Read Book Online'),
+            ),
+            const SizedBox(height: 16.0),
           ],
         ),
       ),
     );
-  }
-
-  void _launchURL(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      print('Could not launch $url');
-    }
   }
 }

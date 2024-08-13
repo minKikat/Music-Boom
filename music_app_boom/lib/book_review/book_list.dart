@@ -77,7 +77,6 @@ class _BookListPageState extends State<BookListPage> {
                     author: book.author,
                     thumbnailUrl: book.imgPath,
                     previewLink: book.previewLink,
-                    pdfLink: book.pdfLink,
                   ),
                 ),
               );

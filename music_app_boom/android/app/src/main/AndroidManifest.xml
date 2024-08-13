@@ -6,7 +6,8 @@
     <application
         android:label="music_app_boom"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/launcher_icon"
+        android:networkSecurityConfig="@xml/network_security_config"> <!--add myself-->
 
         <activity
             android:name=".MainActivity"

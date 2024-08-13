@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 // ignore: unused_import
-import 'package:music_app_boom/screens/forgetpassword.dart';
 import 'package:music_app_boom/screens/signup.dart';
 //import 'package:music_app_boom/signup.dart';
 // ignore: unused_import
