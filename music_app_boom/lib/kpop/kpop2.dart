@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_app_boom/audio_links.dart';
 import 'package:music_app_boom/kpop/kpop.dart';
 import 'package:music_app_boom/kpop/kpop1.dart';
 import 'package:music_app_boom/kpop/kpop3.dart';
+import 'package:music_app_boom/picture_links.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,17 +31,22 @@ class Kpop2State extends State<Kpop2> {
 
   final String songName = 'Easy';
   final String artistName = 'Le Sserafim';
-  final String imageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Fbubble%20gum.png?alt=media&token=3b614659-762d-46c7-8865-71ca7a3cbe35';
- 
+  final String imageUrl = PictureLinks.easy;
+
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
     final cubit = context.read<SongPlayerCubit>();
+    const songUrl = AudioLinks.easy;
 
-    cubit.playSong();
-    context.read<SongPlayerCubit>().loadLocalSong('assets/audio/kpop/Easy.mp3');
+    cubit.loadSong(songUrl).then((_) {
+      // Auto-play after the song is loaded
+      cubit.playSong();
+      setState(() {
+        isPlaying = true;
+      });
+    });
     _checkIfFavourite(); // Check if the song is a favourite
   }
 
@@ -48,16 +55,6 @@ class Kpop2State extends State<Kpop2> {
     setState(() {
       isFavourite = isFav;
     });
-  }
-
-  // ignore: unused_element
-  Future<void> _loadLocalAsset() async {
-    print('*****isPlaying******: $isPlaying');
-    try {
-      await audioPlayer.setAsset('assets/audio/kpop/Easy.mp3');
-    } catch (e) {
-      print('Error loading asset: $e');
-    }
   }
 
   void togglePlayPause() {
@@ -169,13 +166,27 @@ class Kpop2State extends State<Kpop2> {
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Feasy.png?alt=media&token=bfcf24c3-8139-4a23-8184-d20c4d28bad8',
-                      width: 380,
-                      height: 320,
-                      fit: BoxFit.cover,
+                  child: Container(
+                    width: 380,
+                    height: 320,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 ),

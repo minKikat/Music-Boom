@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/audio_links.dart';
 import 'package:music_app_boom/mandopop/mandopop.dart';
 import 'package:music_app_boom/mandopop/mandopop3.dart';
 import 'package:music_app_boom/mandopop/mandopop5.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_app_boom/picture_links.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,17 +31,22 @@ class Mandopop4State extends State<Mandopop4> {
 
   final String songName = 'Best Friend';
   final String artistName = 'Eric Chou';
-  final String imageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fbest%20friend.png?alt=media&token=1bd82dd2-6854-4c84-97f5-b4b2e094c836';
+  final String imageUrl = PictureLinks.bestFriend;
 
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
     final cubit = context.read<SongPlayerCubit>();
+    const songUrl = AudioLinks.bestFriend;
 
-    cubit.playSong();
-    context.read<SongPlayerCubit>().loadLocalSong('assets/audio/mandopop/Best Friend.mp3');
+    cubit.loadSong(songUrl).then((_) {
+      // Auto-play after the song is loaded
+      cubit.playSong();
+      setState(() {
+        isPlaying = true;
+      });
+    });
     _checkIfFavourite(); // Check if the song is a favourite
   }
 
@@ -48,16 +55,6 @@ class Mandopop4State extends State<Mandopop4> {
     setState(() {
       isFavourite = isFav;
     });
-  }
-
-  // ignore: unused_element
-  Future<void> _loadLocalAsset() async {
-    print('*****isPlaying******: $isPlaying');
-    try {
-      await audioPlayer.setAsset('assets/audio/mandopop/A friend like you.mp3');
-    } catch (e) {
-      print('Error loading asset: $e');
-    }
   }
 
   void togglePlayPause() {
@@ -69,7 +66,8 @@ class Mandopop4State extends State<Mandopop4> {
   }
 
   void toggleFavorite() {
-    final favoriteProvider = Provider.of<FavouriteProvider>(context, listen: false);
+    final favoriteProvider =
+        Provider.of<FavouriteProvider>(context, listen: false);
     setState(() {
       isFavourite = !isFavourite;
       if (isFavourite) {
@@ -79,7 +77,8 @@ class Mandopop4State extends State<Mandopop4> {
       } else {
         _logger.info('Removing from favorites: $songName');
         favoriteProvider.removeFavourite(songName);
-        widget.firestoreService.removeSong(songName); // Remove song from Firestore
+        widget.firestoreService
+            .removeSong(songName); // Remove song from Firestore
       }
     });
   }
@@ -143,7 +142,8 @@ class Mandopop4State extends State<Mandopop4> {
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) => const Mandopop())); // Assuming Mandopop1 is the previous page
+                            builder: (BuildContext context) =>
+                                const Mandopop())); // Assuming Mandopop1 is the previous page
                       },
                     ),
                     IconButton(
@@ -167,13 +167,28 @@ class Mandopop4State extends State<Mandopop4> {
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      imageUrl,
-                      width: 380,
-                      height: 320,
-                      fit: BoxFit.cover,
+                  child: Container(
+                    width: 380, // Adjust as needed
+                    height: 320, // Adjust as needed
+                    decoration: BoxDecoration(
+                      color: Colors.black, // Optional: background color
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5), // Shadow color
+                          spreadRadius: 2, // Spread radius
+                          blurRadius: 8, // Blur radius
+                          offset: const Offset(0, 4), // Shadow offset
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit
+                            .contain, // Ensures the whole image is visible
+                      ),
                     ),
                   ),
                 ),
@@ -238,7 +253,8 @@ class Mandopop4State extends State<Mandopop4> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) => Mandopop3())); // Assuming Mandopop3 is the previous song
+                            builder: (BuildContext context) =>
+                                Mandopop3())); // Assuming Mandopop3 is the previous song
                       },
                     ),
                     Container(
@@ -263,7 +279,8 @@ class Mandopop4State extends State<Mandopop4> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) => Mandopop5())); // Assuming Mandopop5 is the next song
+                            builder: (BuildContext context) =>
+                                Mandopop5())); // Assuming Mandopop5 is the next song
                       },
                     ),
                   ],

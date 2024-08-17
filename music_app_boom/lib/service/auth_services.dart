@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app_boom/home_page.dart';
@@ -5,6 +6,8 @@ import 'package:music_app_boom/home_page.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  
 
   Future<void> registerWithEmailPassword(
       BuildContext context, String email, String password) async {
@@ -14,6 +17,13 @@ class AuthService {
         email: email,
         password: password,
       );
+
+      User? user = userCredential.user;
+
+     await _firestore.collection('users').doc(user?.uid).set({
+        'email': email,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
 
       // Create snackbar to show register status
       WidgetsBinding.instance.addPostFrameCallback((_) {

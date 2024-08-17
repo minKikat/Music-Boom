@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_app_boom/audio_links.dart';
+import 'package:music_app_boom/picture_links.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,19 +31,22 @@ class Mandopop5State extends State<Mandopop5> {
 
   final String songName = 'I\'m too Stupid';
   final String artistName = 'Chuina Lisha';
-  final String imageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2FI\'m%20too%20stupid.png?alt=media&token=dfd2b725-64b1-49cb-9243-fff67134ed82';
+  final String imageUrl = PictureLinks.iAmTooStupid;
 
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
     final cubit = context.read<SongPlayerCubit>();
+    const songUrl = AudioLinks.iAmTooStupid;
 
-    cubit.playSong();
-    context
-        .read<SongPlayerCubit>()
-        .loadLocalSong('assets/audio/mandopop/I am too stupid.mp3');
+    cubit.loadSong(songUrl).then((_) {
+      // Auto-play after the song is loaded
+      cubit.playSong();
+      setState(() {
+        isPlaying = true;
+      });
+    });
     _checkIfFavourite(); // Check if the song is a favourite
   }
 
@@ -50,16 +55,6 @@ class Mandopop5State extends State<Mandopop5> {
     setState(() {
       isFavourite = isFav;
     });
-  }
-
-  // ignore: unused_element
-  Future<void> _loadLocalAsset() async {
-    print('*****isPlaying******: $isPlaying');
-    try {
-      await audioPlayer.setAsset('assets/audio/mandopop/A friend like you.mp3');
-    } catch (e) {
-      print('Error loading asset: $e');
-    }
   }
 
   void togglePlayPause() {
@@ -172,13 +167,28 @@ class Mandopop5State extends State<Mandopop5> {
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      imageUrl,
-                      width: 380,
-                      height: 320,
-                      fit: BoxFit.cover,
+                  child: Container(
+                    width: 380, // Adjust as needed
+                    height: 320, // Adjust as needed
+                    decoration: BoxDecoration(
+                      color: Colors.black, // Optional: background color
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5), // Shadow color
+                          spreadRadius: 2, // Spread radius
+                          blurRadius: 8, // Blur radius
+                          offset: const Offset(0, 4), // Shadow offset
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit
+                            .contain, // Ensures the whole image is visible
+                      ),
                     ),
                   ),
                 ),

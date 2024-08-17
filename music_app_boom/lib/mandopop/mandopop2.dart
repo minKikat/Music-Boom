@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_app_boom/audio_links.dart';
 import 'package:music_app_boom/mandopop/mandopop.dart';
 import 'package:music_app_boom/mandopop/mandopop1.dart';
 import 'package:music_app_boom/mandopop/mandopop3.dart';
+import 'package:music_app_boom/picture_links.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,19 +31,22 @@ class Mandopop2State extends State<Mandopop2> {
 
   final String songName = 'Long';
   final String artistName = 'Zhang Bi Chen';
-  final String imageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Flong.png?alt=media&token=c44f57a2-e927-468c-96ed-604b6d8f771c';
+  final String imageUrl = PictureLinks.long;
 
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
     final cubit = context.read<SongPlayerCubit>();
+    const songUrl = AudioLinks.long;
 
-    cubit.playSong();
-    context
-        .read<SongPlayerCubit>()
-        .loadLocalSong('assets/audio/mandopop/Long.mp3');
+    cubit.loadSong(songUrl).then((_) {
+      // Auto-play after the song is loaded
+      cubit.playSong();
+      setState(() {
+        isPlaying = true;
+      });
+    });
     _checkIfFavourite(); // Check if the song is a favourite
   }
 
@@ -50,15 +55,6 @@ class Mandopop2State extends State<Mandopop2> {
     setState(() {
       isFavourite = isFav;
     });
-  }
-
-  Future<void> _loadLocalAsset() async {
-    print('*****isPlaying******: $isPlaying');
-    try {
-      await audioPlayer.setAsset('assets/audio/mandopop/Long.mp3');
-    } catch (e) {
-      print('Error loading asset: $e');
-    }
   }
 
   void togglePlayPause() {
@@ -170,13 +166,28 @@ class Mandopop2State extends State<Mandopop2> {
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      imageUrl,
-                      width: 380,
-                      height: 320,
-                      fit: BoxFit.cover,
+                  child: Container(
+                    width: 380, // Adjust as needed
+                    height: 320, // Adjust as needed
+                    decoration: BoxDecoration(
+                      color: Colors.black, // Optional: background color
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5), // Shadow color
+                          spreadRadius: 2, // Spread radius
+                          blurRadius: 8, // Blur radius
+                          offset: const Offset(0, 4), // Shadow offset
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit
+                            .contain, // Ensures the whole image is visible
+                      ),
                     ),
                   ),
                 ),

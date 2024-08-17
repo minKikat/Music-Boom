@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/audio_links.dart';
 import 'package:music_app_boom/mandopop/mandopop.dart';
 import 'package:music_app_boom/mandopop/mandopop2.dart';
 import 'package:music_app_boom/mandopop/mandopop4.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_app_boom/picture_links.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,19 +31,22 @@ class Mandopop3State extends State<Mandopop3> {
 
   final String songName = 'A Friend Like You';
   final String artistName = 'Lu Hu';
-  final String imageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fa%20friend%20like%20you.png?alt=media&token=9ecebf3a-6718-4489-a9e4-4a610b9bc33f';
-
+  final String imageUrl = PictureLinks.aFriendLikeYou;
+  
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
     final cubit = context.read<SongPlayerCubit>();
+    const songUrl = AudioLinks.aFriendLikeYou;
 
-    cubit.playSong();
-    context
-        .read<SongPlayerCubit>()
-        .loadLocalSong('assets/audio/mandopop/A friend like you.mp3');
+     cubit.loadSong(songUrl).then((_) {
+      // Auto-play after the song is loaded
+      cubit.playSong();
+      setState(() {
+        isPlaying = true;
+      });
+    });
     _checkIfFavourite(); // Check if the song is a favourite
   }
 
@@ -52,15 +57,6 @@ class Mandopop3State extends State<Mandopop3> {
     });
   }
 
-  // ignore: unused_element
-  Future<void> _loadLocalAsset() async {
-    print('*****isPlaying******: $isPlaying');
-    try {
-      await audioPlayer.setAsset('assets/audio/mandopop/A friend like you.mp3');
-    } catch (e) {
-      print('Error loading asset: $e');
-    }
-  }
 
   void togglePlayPause() {
     final cubit = context.read<SongPlayerCubit>();
@@ -171,13 +167,28 @@ class Mandopop3State extends State<Mandopop3> {
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fa%20friend%20like%20you.png?alt=media&token=9ecebf3a-6718-4489-a9e4-4a610b9bc33f',
-                      width: 380,
-                      height: 320,
-                      fit: BoxFit.cover,
+                  child: Container(
+                    width: 380, // Adjust as needed
+                    height: 320, // Adjust as needed
+                    decoration: BoxDecoration(
+                      color: Colors.black, // Optional: background color
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5), // Shadow color
+                          spreadRadius: 2, // Spread radius
+                          blurRadius: 8, // Blur radius
+                          offset: const Offset(0, 4), // Shadow offset
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit
+                            .contain, // Ensures the whole image is visible
+                      ),
                     ),
                   ),
                 ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_app_boom/audio_links.dart';
 import 'package:music_app_boom/kpop/kpop.dart';
 import 'package:music_app_boom/kpop/kpop2.dart';
 import 'package:music_app_boom/kpop/kpop4.dart';
+import 'package:music_app_boom/picture_links.dart';
 import 'package:provider/provider.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,19 +31,23 @@ class Kpop3State extends State<Kpop3> {
 
   final String songName = 'Bubble Gum';
   final String artistName = 'NewJeans';
-  final String imageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Fbubble%20gum.png?alt=media&token=3b614659-762d-46c7-8865-71ca7a3cbe35';
-  
+  final String imageUrl = PictureLinks.bubbleGum;
+
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
     final cubit = context.read<SongPlayerCubit>();
+    const songUrl = AudioLinks.bubbleGum;
 
-    cubit.playSong();
-    context.read<SongPlayerCubit>().loadLocalSong(
-        'assets/audio/kpop/Bubble Gum.mp3');
-  _checkIfFavourite(); // Check if the song is a favourite
+    cubit.loadSong(songUrl).then((_) {
+      // Auto-play after the song is loaded
+      cubit.playSong();
+      setState(() {
+        isPlaying = true;
+      });
+    });
+    _checkIfFavourite(); // Check if the song is a favourite
   }
 
   Future<void> _checkIfFavourite() async {
@@ -49,16 +55,6 @@ class Kpop3State extends State<Kpop3> {
     setState(() {
       isFavourite = isFav;
     });
-  }
-
-  // ignore: unused_element
-  Future<void> _loadLocalAsset() async {
-    print('*****isPlaying******: $isPlaying');
-    try {
-      await audioPlayer.setAsset('assets/audio/kpop/Bubble Gum.mp3');
-    } catch (e) {
-      print('Error loading asset: $e');
-    }
   }
 
   void togglePlayPause() {
@@ -69,7 +65,7 @@ class Kpop3State extends State<Kpop3> {
     });
   }
 
-void toggleFavorite() {
+  void toggleFavorite() {
     final favoriteProvider =
         Provider.of<FavouriteProvider>(context, listen: false);
     setState(() {
@@ -81,7 +77,8 @@ void toggleFavorite() {
       } else {
         _logger.info('Removing from favorites: $songName');
         favoriteProvider.removeFavourite(songName);
-        widget.firestoreService.removeSong(songName); // Remove song from Firestore
+        widget.firestoreService
+            .removeSong(songName); // Remove song from Firestore
       }
     });
   }
@@ -101,7 +98,7 @@ void toggleFavorite() {
     return '$minutes:$seconds';
   }
 
-   Widget _songPlayer(BuildContext context) {
+  Widget _songPlayer(BuildContext context) {
     return BlocBuilder<SongPlayerCubit, SongPlayerState>(
       builder: (context, state) {
         if (state is SongPlayerLoaded) {
@@ -169,13 +166,27 @@ void toggleFavorite() {
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/Kpop%2Fbubble%20gum.png?alt=media&token=3b614659-762d-46c7-8865-71ca7a3cbe35',
-                      width: 380,
-                      height: 320,
-                      fit: BoxFit.cover,
+                  child: Container(
+                    width: 380,
+                    height: 320,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 ),

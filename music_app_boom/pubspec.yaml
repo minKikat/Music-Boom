@@ -53,7 +53,6 @@ dependencies:
   provider: ^6.1.2
 
   flutter_launcher_icons: "^0.13.1"
-  
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -67,14 +66,16 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/audio/mandopop/.
-    - assets/audio/kpop/.
-    - assets/audio/malay/.
     - assets/fonts/
 
-  #fonts:
-  #- family: Gothic
-  #  fonts:
-  #    - asset: aeests/fonts/.
+  fonts:
+    - family: Gothics
+      fonts:
+        - asset: assets/fonts/Gothic_General.ttf
+        - asset: assets/fonts/Gothic_Italic.ttf
+          style: italic
+        - asset: assets/fonts/Gothic_Bold_Italic.ttf
+          style: italic
+          weight: 600
 
   uses-material-design: true

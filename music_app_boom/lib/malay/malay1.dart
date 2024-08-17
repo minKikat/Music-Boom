@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_boom/audio_links.dart';
 import 'package:music_app_boom/malay/malay.dart';
 import 'package:music_app_boom/malay/malay2.dart';
 import 'package:music_app_boom/malay/malay5.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_app_boom/picture_links.dart';
 import 'package:music_app_boom/song_player/song_player_cubit.dart';
 import 'package:music_app_boom/song_player/song_player_state.dart';
 import 'package:provider/provider.dart';
@@ -29,19 +31,22 @@ class Mandopop1State extends State<Malay1> {
 
   final String songName = 'Alibaba';
   final String artistName = 'Playaz';
-  final String imageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/malay%2FAlibaba.jpeg?alt=media&token=846df024-de8c-4209-88f6-bfbce7a6cc8c';
+  final String imageUrl = PictureLinks.alibaba;
 
   @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
     final cubit = context.read<SongPlayerCubit>();
+    const songUrl = AudioLinks.alibaba;
 
-    cubit.playSong();
-    context
-        .read<SongPlayerCubit>()
-        .loadLocalSong('assets/audio/malay/Alibaba.mp3');
+    cubit.loadSong(songUrl).then((_) {
+      // Auto-play after the song is loaded
+      cubit.playSong();
+      setState(() {
+        isPlaying = true;
+      });
+    });
     _checkIfFavourite(); // Check if the song is a favourite
   }
 
@@ -50,16 +55,6 @@ class Mandopop1State extends State<Malay1> {
     setState(() {
       isFavourite = isFav;
     });
-  }
-
-  // ignore: unused_element
-  Future<void> _loadLocalAsset() async {
-    print('*****isPlaying******: $isPlaying');
-    try {
-      await audioPlayer.setAsset('assets/audio/malay/Alibaba.mp3');
-    } catch (e) {
-      print('Error loading asset: $e');
-    }
   }
 
   void togglePlayPause() {
@@ -147,8 +142,7 @@ class Mandopop1State extends State<Malay1> {
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Malay()));
+                            builder: (BuildContext context) => const Malay()));
                       },
                     ),
                     // favourite icon
@@ -172,13 +166,27 @@ class Mandopop1State extends State<Malay1> {
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/malay%2FAlibaba.jpeg?alt=media&token=846df024-de8c-4209-88f6-bfbce7a6cc8c',
-                      width: 380,
-                      height: 320,
-                      fit: BoxFit.cover,
+                  child: Container(
+                    width: 380,
+                    height: 320,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 ),

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:music_app_boom/home_page.dart';
@@ -5,8 +6,21 @@ import 'package:music_app_boom/home_page.dart';
 class MyFavourite extends StatelessWidget {
   const MyFavourite({super.key});
 
+  String getUserId() {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      throw Exception('No user is logged in');
+    }
+    return user.uid;
+  }
+
   void _removeFromFavorites(String documentId) {
-    FirebaseFirestore.instance.collection('Favorites').doc(documentId).delete();
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(getUserId())
+        .collection('favorites')
+        .doc(documentId)
+        .delete();
   }
 
   @override
@@ -33,8 +47,11 @@ class MyFavourite extends StatelessWidget {
           backgroundColor: Colors.black,
         ),
         body: StreamBuilder(
-          stream:
-              FirebaseFirestore.instance.collection('Favorites').snapshots(),
+          stream: FirebaseFirestore.instance
+            .collection('users')
+            .doc(getUserId())
+            .collection('favorites')
+            .snapshots(),
           builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData) {
               return const Center(child: CircularProgressIndicator());

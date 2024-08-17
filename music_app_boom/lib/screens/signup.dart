@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:music_app_boom/picture_links.dart';
 import 'package:music_app_boom/screens/login.dart';
 import 'package:music_app_boom/service/auth_services.dart';
 
@@ -15,6 +16,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final AuthService _authService = AuthService();
   bool _isObscure = true;
+
+  final String imageUrl = PictureLinks.logo;
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +39,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
                 width: 150,
                 height: 150,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/homePage%2Flogo.png?alt=media&token=c2a660d6-39cd-4c55-adf0-fa76a2c4da84'),
                     fit: BoxFit.cover,
+                    image: NetworkImage(imageUrl),
                   ),
                 ),
               ),
@@ -102,7 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       });
                     },
                     icon: Icon(
-                      _isObscure ? Icons.visibility : Icons.visibility_off,
+                      _isObscure ? Icons.visibility_off : Icons.visibility,
                       color: Colors.white,
                     ),
                   ),

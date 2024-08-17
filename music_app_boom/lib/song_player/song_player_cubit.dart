@@ -5,9 +5,16 @@ import 'package:just_audio/just_audio.dart';
 import 'package:logging/logging.dart';
 import 'song_player_state.dart';
 
+class SongPlayerError extends SongPlayerState {
+  final String message;
+
+  SongPlayerError(this.message);
+}
+
 class SongPlayerCubit extends Cubit<SongPlayerState> {
   final AudioPlayer audioPlayer;
   final Logger _logger = Logger('SongPlayerCubit'); // Initialize the logger
+  
 
   SongPlayerCubit(this.audioPlayer) : super(SongPlayerInitial()) {
     _initialize();
@@ -23,7 +30,7 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
     });
   }
 
-  void loadSong(String url) async {
+  /*void loadSong(String url) async {
     emit(SongPlayerLoading());
     try {
       await audioPlayer.setUrl(url);
@@ -33,7 +40,21 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
       _logger.severe('Error loading song: $e', e, stackTrace); // Log the error
       // Handle the error appropriately, such as showing a user-friendly message
     }
+  }*/
+  
+  
+  loadSong(String url) async {
+  emit(SongPlayerLoading());
+  try {
+    await audioPlayer.setUrl(url);
+    emit(SongPlayerLoaded(
+        audioPlayer.position, audioPlayer.duration ?? Duration.zero));
+  } catch (e, stackTrace) {
+    _logger.severe('Error loading song: $e', e, stackTrace);
+    emit(SongPlayerError('Failed to load song.'));
   }
+}
+
 
   void loadLocalSong(String assetPath) async {
     emit(SongPlayerLoading());

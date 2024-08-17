@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:music_app_boom/picture_links.dart';
 // ignore: unused_import
 import 'package:music_app_boom/screens/signup.dart';
 //import 'package:music_app_boom/signup.dart';
@@ -19,6 +20,8 @@ class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final AuthService _authService = AuthService();
+
+  final String imageUrl = PictureLinks.logo;
 
   Future<void> _login() async {
     await _authService.signInWithEmailPassword(
@@ -46,12 +49,11 @@ class _LoginState extends State<Login> {
               Container(
                 width: 150,
                 height: 150,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/homePage%2Flogo.png?alt=media&token=c2a660d6-39cd-4c55-adf0-fa76a2c4da84'),
                     fit: BoxFit.cover,
+                    image: NetworkImage(imageUrl),
                   ),
                 ),
               ),
@@ -107,7 +109,7 @@ class _LoginState extends State<Login> {
                       });
                     },
                     icon: Icon(
-                      _isObscure ? Icons.visibility : Icons.visibility_off,
+                      _isObscure ? Icons.visibility_off : Icons.visibility,
                       color: Colors.white,
                     ),
                   ),
@@ -116,23 +118,6 @@ class _LoginState extends State<Login> {
                 style: const TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 5),
-              /*Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              const ForgotPassword()));
-                    },
-                    child: const Text(
-                      'Forget Password?',
-                      style:
-                          TextStyle(color: Color.fromARGB(255, 62, 200, 235)),
-                    ),
-                  ),
-                ],
-              ),*/
               const SizedBox(height: 50),
               SizedBox(
                 width: double.infinity,
@@ -169,7 +154,7 @@ class _LoginState extends State<Login> {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      SignUpScreen()));
+                                      const SignUpScreen()));
                         },
                     ),
                   ],

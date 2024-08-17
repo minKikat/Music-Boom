@@ -7,10 +7,17 @@ import 'package:music_app_boom/malay/malay4.dart';
 import 'package:music_app_boom/malay/malay5.dart';
 import 'package:music_app_boom/mandopop/mandopop.dart';
 import 'package:music_app_boom/home_page.dart';
+import 'package:music_app_boom/picture_links.dart';
 //import 'package:flutter/widgets.dart';
 
 class Malay extends StatelessWidget {
   const Malay({super.key});
+
+  final String imageUrl = PictureLinks.alibaba;
+  final String imageUrl2 = PictureLinks.gemilang;
+  final String imageUrl3 = PictureLinks.gurindamJiwa;
+  final String imageUrl4 = PictureLinks.isabella98;
+  final String imageUrl5 = PictureLinks.musafirRindu;
 
   @override
   Widget build(BuildContext context) {
@@ -24,31 +31,31 @@ class Malay extends StatelessWidget {
                   builder: (BuildContext context) => const HomePage()));
             },
           ),
-          title: const Center(
-            child: Column(
-              children: [
-                Text(
-                  "Top 5",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "Century Gothic",
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+          title: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Top 5",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: "Century Gothic",
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-                SizedBox(
-                  height: 5,
+              ),
+              SizedBox(height: 5),
+              Text(
+                "Past 30 Days",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.grey,
                 ),
-                Text(
-                  "Past 30 Days",
-                  style: TextStyle(
-                    fontSize: 10,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
+          centerTitle: true,
           backgroundColor: Colors.black,
         ),
         body: Center(
@@ -140,7 +147,7 @@ class Malay extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/malay%2FAlibaba.jpeg?alt=media&token=846df024-de8c-4209-88f6-bfbce7a6cc8c',
+                            imageUrl,
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,
@@ -210,7 +217,7 @@ class Malay extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/malay%2FGemilang.jpg?alt=media&token=86248563-65ec-4b4f-b459-a794cf79c094',
+                            imageUrl2,
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,
@@ -280,7 +287,7 @@ class Malay extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/malay%2FGurindam%20Jiwa.jpg?alt=media&token=990d850b-697c-4550-b9a6-d5d7f047d343',
+                            imageUrl3,
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,
@@ -317,7 +324,7 @@ class Malay extends StatelessWidget {
                         child: Text(
                           "Dayang Nurfaizah, Hael Husaini",
                           style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 11,
                               fontWeight: FontWeight.w500,
                               fontFamily: "Century Gothic",
                               color: Color.fromRGBO(138, 154, 157, 1)),
@@ -350,7 +357,7 @@ class Malay extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/malay%2FIsabella%2098.jpeg?alt=media&token=bf1bee7c-ea58-40bd-9334-618b35a02c01',
+                            imageUrl4,
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,
@@ -420,7 +427,7 @@ class Malay extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/malay%2FMusafir%20Rindu.jpg?alt=media&token=824f2eb6-588d-43bd-969e-aabe3f7911eb',
+                            imageUrl5,
                             width: 120,
                             height: 90,
                             fit: BoxFit.cover,

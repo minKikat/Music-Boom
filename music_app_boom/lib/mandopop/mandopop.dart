@@ -7,10 +7,17 @@ import 'package:music_app_boom/mandopop/mandopop3.dart';
 import 'package:music_app_boom/mandopop/mandopop4.dart';
 import 'package:music_app_boom/mandopop/mandopop5.dart';
 import 'package:music_app_boom/home_page.dart';
+import 'package:music_app_boom/picture_links.dart';
 //import 'package:flutter/widgets.dart';
 
 class Mandopop extends StatelessWidget {
   const Mandopop({super.key});
+
+  final String imageUrl = PictureLinks.gulfOfAlaska;
+  final String imageUrl2 = PictureLinks.long;
+  final String imageUrl3 = PictureLinks.aFriendLikeYou;
+  final String imageUrl4 = PictureLinks.bestFriend;
+  final String imageUrl5 = PictureLinks.iAmTooStupid;
 
   @override
   Widget build(BuildContext context) {
@@ -24,31 +31,31 @@ class Mandopop extends StatelessWidget {
                   builder: (BuildContext context) => const HomePage()));
             },
           ),
-          title: const Center(
-            child: Column(
-              children: [
-                Text(
-                  "Top 5",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "Century Gothic",
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+          title: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Top 5",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: "Century Gothic",
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-                SizedBox(
-                  height: 5,
+              ),
+              SizedBox(height: 5),
+              Text(
+                "Past 30 Days",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.grey,
                 ),
-                Text(
-                  "Past 30 Days",
-                  style: TextStyle(
-                    fontSize: 10,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
+          centerTitle: true,
           backgroundColor: Colors.black,
         ),
         body: Column(
@@ -143,7 +150,7 @@ class Mandopop extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.network(
-                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2FGulf%20of%20Alaska.png?alt=media&token=a5960dad-544a-4e0f-aaf5-c00289496f84',
+                          imageUrl,
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
@@ -213,7 +220,7 @@ class Mandopop extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.network(
-                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Flong.png?alt=media&token=c44f57a2-e927-468c-96ed-604b6d8f771c',
+                          imageUrl2,
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
@@ -283,7 +290,7 @@ class Mandopop extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.network(
-                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fa%20friend%20like%20you.png?alt=media&token=9ecebf3a-6718-4489-a9e4-4a610b9bc33f',
+                          imageUrl3,
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
@@ -352,7 +359,7 @@ class Mandopop extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.network(
-                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2Fbest%20friend.png?alt=media&token=1bd82dd2-6854-4c84-97f5-b4b2e094c836',
+                          imageUrl4,
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
@@ -421,7 +428,7 @@ class Mandopop extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.network(
-                          'https://firebasestorage.googleapis.com/v0/b/music-app-boom.appspot.com/o/mandopop%2FI\'m%20too%20stupid.png?alt=media&token=dfd2b725-64b1-49cb-9243-fff67134ed82',
+                          imageUrl5,
                           width: 120,
                           height: 90,
                           fit: BoxFit.cover,
